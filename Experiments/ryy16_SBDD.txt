@@ -1,0 +1,21 @@
+Benchmark: ryy16
+Approach: SBDD
+Input: 16
+Output: 1
+Vertices: 24
+Edges: 37
+Label V: 2243
+Label H: 2237
+Label VH: 220
+Rows: 15
+Columns: 14
+Cumulative area: 210
+Active variables: 0
+Variables: 37
+Time: 1.1635346412658691
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

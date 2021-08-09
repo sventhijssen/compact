@@ -1,0 +1,21 @@
+Benchmark: pcler8
+Approach: SBDD
+Input: 16
+Output: 5
+Vertices: 59
+Edges: 100
+Label V: 2233
+Label H: 2228
+Label VH: 215
+Rows: 34
+Columns: 34
+Cumulative area: 1156
+Active variables: 0
+Variables: 100
+Time: 1.2205281257629395
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

@@ -1,0 +1,21 @@
+Benchmark: cordic
+Approach: Chakraborty
+Input: 23
+Output: 2
+Vertices: 101
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 131
+Columns: 99
+Cumulative area: 6655
+Active variables: 0
+Variables: 170
+Time: 0.5486783981323242
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

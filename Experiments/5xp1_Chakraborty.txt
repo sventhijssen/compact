@@ -1,0 +1,21 @@
+Benchmark: 5xp1
+Approach: Chakraborty
+Input: 7
+Output: 10
+Vertices: 127
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 155
+Columns: 117
+Cumulative area: 2553
+Active variables: 0
+Variables: 185
+Time: 1.3604931831359863
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

@@ -1,0 +1,21 @@
+Benchmark: x2
+Approach: Chakraborty
+Input: 10
+Output: 7
+Vertices: 59
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 74
+Columns: 52
+Cumulative area: 829
+Active variables: 0
+Variables: 89
+Time: 0.9089038372039795
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

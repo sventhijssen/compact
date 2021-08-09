@@ -1,0 +1,21 @@
+Benchmark: alu4
+Approach: Chakraborty
+Input: 14
+Output: 8
+Vertices: 1289
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 1461
+Columns: 1281
+Cumulative area: 351340
+Active variables: 0
+Variables: 2299
+Time: 20.906168460845947
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

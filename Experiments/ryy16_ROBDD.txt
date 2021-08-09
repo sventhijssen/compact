@@ -1,0 +1,821 @@
+Benchmark: ryy16
+Approach: ROBDD
+Input: 16
+Output: 1
+Vertices: 18
+Edges: 20885
+Label V: 5877
+Label H: 5887
+Label VH: 1131
+Rows: 11
+Columns: 11
+Cumulative area: 121
+Active variables: 0
+Variables: 27
+Time: 0.269634485244751
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+
+Output: f0
+	Unique variables: 16
+	Unique variables/Area: 9.47%
+	Rows: 13
+	Columns: 13
+	Area: 169
+	Active memristors: 27
+	Density: 15.98%
+Output: f1
+	Unique variables: 7
+	Unique variables/Area: 10.94%
+	Rows: 8
+	Columns: 8
+	Area: 64
+	Active memristors: 15
+	Density: 23.44%
+Output: f2
+	Unique variables: 8
+	Unique variables/Area: 8.89%
+	Rows: 10
+	Columns: 9
+	Area: 90
+	Active memristors: 18
+	Density: 20.00%
+Output: f3
+	Unique variables: 9
+	Unique variables/Area: 9.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 21
+	Density: 21.00%
+Output: f4
+	Unique variables: 5
+	Unique variables/Area: 20.00%
+	Rows: 5
+	Columns: 5
+	Area: 25
+	Active memristors: 5
+	Density: 20.00%
+Output: f5
+	Unique variables: 2
+	Unique variables/Area: 16.67%
+	Rows: 3
+	Columns: 4
+	Area: 12
+	Active memristors: 2
+	Density: 16.67%
+Output: f6
+	Unique variables: 14
+	Unique variables/Area: 0.03%
+	Rows: 214
+	Columns: 214
+	Area: 45796
+	Active memristors: 729
+	Density: 1.59%
+Output: f7
+	Unique variables: 8
+	Unique variables/Area: 9.88%
+	Rows: 9
+	Columns: 9
+	Area: 81
+	Active memristors: 16
+	Density: 19.75%
+Output: f8
+	Unique variables: 10
+	Unique variables/Area: 10.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 17
+	Density: 17.00%
+Output: f9
+	Unique variables: 10
+	Unique variables/Area: 6.94%
+	Rows: 12
+	Columns: 12
+	Area: 144
+	Active memristors: 27
+	Density: 18.75%
+Output: f10
+	Unique variables: 8
+	Unique variables/Area: 19.05%
+	Rows: 6
+	Columns: 7
+	Area: 42
+	Active memristors: 9
+	Density: 21.43%
+Output: f11
+	Unique variables: 25
+	Unique variables/Area: 2.60%
+	Rows: 31
+	Columns: 31
+	Area: 961
+	Active memristors: 72
+	Density: 7.49%
+Output: f12
+	Unique variables: 12
+	Unique variables/Area: 10.91%
+	Rows: 10
+	Columns: 11
+	Area: 110
+	Active memristors: 17
+	Density: 15.45%
+Output: f13
+	Unique variables: 10
+	Unique variables/Area: 10.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 17
+	Density: 17.00%
+Output: f14
+	Unique variables: 11
+	Unique variables/Area: 11.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 18
+	Density: 18.00%
+Output: f15
+	Unique variables: 2
+	Unique variables/Area: 16.67%
+	Rows: 3
+	Columns: 4
+	Area: 12
+	Active memristors: 2
+	Density: 16.67%
+Output: f16
+	Unique variables: 17
+	Unique variables/Area: 3.08%
+	Rows: 23
+	Columns: 24
+	Area: 552
+	Active memristors: 50
+	Density: 9.06%
+Output: f17
+	Unique variables: 32
+	Unique variables/Area: 0.44%
+	Rows: 85
+	Columns: 86
+	Area: 7310
+	Active memristors: 228
+	Density: 3.12%
+Output: f18
+	Unique variables: 34
+	Unique variables/Area: 0.19%
+	Rows: 133
+	Columns: 134
+	Area: 17822
+	Active memristors: 401
+	Density: 2.25%
+Output: f19
+	Unique variables: 16
+	Unique variables/Area: 2.04%
+	Rows: 28
+	Columns: 28
+	Area: 784
+	Active memristors: 66
+	Density: 8.42%
+Output: f20
+	Unique variables: 21
+	Unique variables/Area: 0.25%
+	Rows: 91
+	Columns: 91
+	Area: 8281
+	Active memristors: 287
+	Density: 3.47%
+Output: f21
+	Unique variables: 13
+	Unique variables/Area: 1.19%
+	Rows: 33
+	Columns: 33
+	Area: 1089
+	Active memristors: 94
+	Density: 8.63%
+Output: f22
+	Unique variables: 20
+	Unique variables/Area: 1.06%
+	Rows: 44
+	Columns: 43
+	Area: 1892
+	Active memristors: 125
+	Density: 6.61%
+Output: f23
+	Unique variables: 22
+	Unique variables/Area: 0.78%
+	Rows: 53
+	Columns: 53
+	Area: 2809
+	Active memristors: 168
+	Density: 5.98%
+Output: f24
+	Unique variables: 34
+	Unique variables/Area: 0.44%
+	Rows: 88
+	Columns: 88
+	Area: 7744
+	Active memristors: 234
+	Density: 3.02%
+Output: f25
+	Unique variables: 34
+	Unique variables/Area: 0.62%
+	Rows: 74
+	Columns: 74
+	Area: 5476
+	Active memristors: 187
+	Density: 3.41%
+Output: f26
+	Unique variables: 15
+	Unique variables/Area: 2.96%
+	Rows: 22
+	Columns: 23
+	Area: 506
+	Active memristors: 51
+	Density: 10.08%
+Output: f27
+	Unique variables: 24
+	Unique variables/Area: 1.06%
+	Rows: 47
+	Columns: 48
+	Area: 2256
+	Active memristors: 124
+	Density: 5.50%
+Output: f28
+	Unique variables: 17
+	Unique variables/Area: 3.36%
+	Rows: 22
+	Columns: 23
+	Area: 506
+	Active memristors: 44
+	Density: 8.70%
+Output: f29
+	Unique variables: 21
+	Unique variables/Area: 2.88%
+	Rows: 27
+	Columns: 27
+	Area: 729
+	Active memristors: 58
+	Density: 7.96%
+Output: f30
+	Unique variables: 23
+	Unique variables/Area: 2.83%
+	Rows: 29
+	Columns: 28
+	Area: 812
+	Active memristors: 63
+	Density: 7.76%
+Output: f31
+	Unique variables: 28
+	Unique variables/Area: 1.89%
+	Rows: 39
+	Columns: 38
+	Area: 1482
+	Active memristors: 85
+	Density: 5.74%
+Output: f32
+	Unique variables: 10
+	Unique variables/Area: 17.86%
+	Rows: 8
+	Columns: 7
+	Area: 56
+	Active memristors: 10
+	Density: 17.86%
+Output: f33
+	Unique variables: 37
+	Unique variables/Area: 0.37%
+	Rows: 101
+	Columns: 100
+	Area: 10100
+	Active memristors: 281
+	Density: 2.78%
+Output: f34
+	Unique variables: 25
+	Unique variables/Area: 0.58%
+	Rows: 65
+	Columns: 66
+	Area: 4290
+	Active memristors: 190
+	Density: 4.43%
+Output: f35
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f36
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f37
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f38
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f39
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f40
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f41
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f42
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f43
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f44
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f45
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f46
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f47
+	Unique variables: 13
+	Unique variables/Area: 2.69%
+	Rows: 22
+	Columns: 22
+	Area: 484
+	Active memristors: 57
+	Density: 11.78%
+Output: f48
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f49
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f50
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f51
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f52
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f53
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f54
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f55
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 13
+	Columns: 12
+	Area: 156
+	Active memristors: 29
+	Density: 18.59%
+Output: f56
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f57
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f58
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f59
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f60
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f61
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f62
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f63
+	Unique variables: 11
+	Unique variables/Area: 7.05%
+	Rows: 12
+	Columns: 13
+	Area: 156
+	Active memristors: 28
+	Density: 17.95%
+Output: f64
+	Unique variables: 19
+	Unique variables/Area: 0.72%
+	Rows: 52
+	Columns: 51
+	Area: 2652
+	Active memristors: 179
+	Density: 6.75%
+Output: f65
+	Unique variables: 19
+	Unique variables/Area: 0.72%
+	Rows: 52
+	Columns: 51
+	Area: 2652
+	Active memristors: 179
+	Density: 6.75%
+Output: f66
+	Unique variables: 18
+	Unique variables/Area: 2.07%
+	Rows: 30
+	Columns: 29
+	Area: 870
+	Active memristors: 82
+	Density: 9.43%
+Output: f67
+	Unique variables: 18
+	Unique variables/Area: 2.07%
+	Rows: 30
+	Columns: 29
+	Area: 870
+	Active memristors: 82
+	Density: 9.43%
+Output: f68
+	Unique variables: 19
+	Unique variables/Area: 0.72%
+	Rows: 52
+	Columns: 51
+	Area: 2652
+	Active memristors: 179
+	Density: 6.75%
+Output: f69
+	Unique variables: 19
+	Unique variables/Area: 0.72%
+	Rows: 52
+	Columns: 51
+	Area: 2652
+	Active memristors: 179
+	Density: 6.75%
+Output: f70
+	Unique variables: 19
+	Unique variables/Area: 0.72%
+	Rows: 52
+	Columns: 51
+	Area: 2652
+	Active memristors: 179
+	Density: 6.75%
+Output: f71
+	Unique variables: 18
+	Unique variables/Area: 2.07%
+	Rows: 30
+	Columns: 29
+	Area: 870
+	Active memristors: 82
+	Density: 9.43%
+Output: f72
+	Unique variables: 24
+	Unique variables/Area: 3.42%
+	Rows: 27
+	Columns: 26
+	Area: 702
+	Active memristors: 81
+	Density: 11.54%
+Output: f73
+	Unique variables: 24
+	Unique variables/Area: 6.65%
+	Rows: 19
+	Columns: 19
+	Area: 361
+	Active memristors: 52
+	Density: 14.40%
+Output: f74
+	Unique variables: 24
+	Unique variables/Area: 6.32%
+	Rows: 20
+	Columns: 19
+	Area: 380
+	Active memristors: 53
+	Density: 13.95%
+Output: f75
+	Unique variables: 24
+	Unique variables/Area: 6.00%
+	Rows: 20
+	Columns: 20
+	Area: 400
+	Active memristors: 54
+	Density: 13.50%
+Output: f76
+	Unique variables: 25
+	Unique variables/Area: 1.98%
+	Rows: 36
+	Columns: 35
+	Area: 1260
+	Active memristors: 107
+	Density: 8.49%
+Output: f77
+	Unique variables: 25
+	Unique variables/Area: 5.41%
+	Rows: 22
+	Columns: 21
+	Area: 462
+	Active memristors: 49
+	Density: 10.61%
+Output: f78
+	Unique variables: 25
+	Unique variables/Area: 5.67%
+	Rows: 21
+	Columns: 21
+	Area: 441
+	Active memristors: 50
+	Density: 11.34%
+Output: f79
+	Unique variables: 25
+	Unique variables/Area: 5.41%
+	Rows: 21
+	Columns: 22
+	Area: 462
+	Active memristors: 51
+	Density: 11.04%
+Output: f80
+	Unique variables: 25
+	Unique variables/Area: 3.85%
+	Rows: 26
+	Columns: 25
+	Area: 650
+	Active memristors: 74
+	Density: 11.38%
+Output: f81
+	Unique variables: 25
+	Unique variables/Area: 3.85%
+	Rows: 26
+	Columns: 25
+	Area: 650
+	Active memristors: 61
+	Density: 9.38%
+Output: f82
+	Unique variables: 25
+	Unique variables/Area: 4.00%
+	Rows: 25
+	Columns: 25
+	Area: 625
+	Active memristors: 62
+	Density: 9.92%
+Output: f83
+	Unique variables: 25
+	Unique variables/Area: 3.85%
+	Rows: 26
+	Columns: 25
+	Area: 650
+	Active memristors: 63
+	Density: 9.69%
+Output: f84
+	Unique variables: 25
+	Unique variables/Area: 1.98%
+	Rows: 36
+	Columns: 35
+	Area: 1260
+	Active memristors: 107
+	Density: 8.49%
+Output: f85
+	Unique variables: 25
+	Unique variables/Area: 2.87%
+	Rows: 30
+	Columns: 29
+	Area: 870
+	Active memristors: 73
+	Density: 8.39%
+Output: f86
+	Unique variables: 25
+	Unique variables/Area: 2.97%
+	Rows: 29
+	Columns: 29
+	Area: 841
+	Active memristors: 74
+	Density: 8.80%
+Output: f87
+	Unique variables: 25
+	Unique variables/Area: 9.19%
+	Rows: 17
+	Columns: 16
+	Area: 272
+	Active memristors: 48
+	Density: 17.65%
+Output: z0
+	Unique variables: 4
+	Unique variables/Area: 13.33%
+	Rows: 5
+	Columns: 6
+	Area: 30
+	Active memristors: 7
+	Density: 23.33%
+Output: z1
+	Unique variables: 6
+	Unique variables/Area: 8.33%
+	Rows: 9
+	Columns: 8
+	Area: 72
+	Active memristors: 14
+	Density: 19.44%
+Output: z2
+	Unique variables: 7
+	Unique variables/Area: 7.78%
+	Rows: 9
+	Columns: 10
+	Area: 90
+	Active memristors: 16
+	Density: 17.78%
+Output: z3
+	Unique variables: 7
+	Unique variables/Area: 9.72%
+	Rows: 9
+	Columns: 8
+	Area: 72
+	Active memristors: 14
+	Density: 19.44%
+Output: z4
+	Unique variables: 4
+	Unique variables/Area: 8.16%
+	Rows: 7
+	Columns: 7
+	Area: 49
+	Active memristors: 13
+	Density: 26.53%
+Output: pp
+	Unique variables: 9
+	Unique variables/Area: 10.00%
+	Rows: 10
+	Columns: 9
+	Area: 90
+	Active memristors: 20
+	Density: 22.22%
+Output: pq
+	Unique variables: 10
+	Unique variables/Area: 10.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 22
+	Density: 22.00%
+Output: pr
+	Unique variables: 11
+	Unique variables/Area: 10.00%
+	Rows: 11
+	Columns: 10
+	Area: 110
+	Active memristors: 24
+	Density: 21.82%
+Output: ps
+	Unique variables: 3
+	Unique variables/Area: 18.75%
+	Rows: 4
+	Columns: 4
+	Area: 16
+	Active memristors: 3
+	Density: 18.75%
+Output: po
+	Unique variables: 8
+	Unique variables/Area: 14.29%
+	Rows: 8
+	Columns: 7
+	Area: 56
+	Active memristors: 14
+	Density: 25.00%
+Output: z5
+	Unique variables: 6
+	Unique variables/Area: 6.00%
+	Rows: 10
+	Columns: 10
+	Area: 100
+	Active memristors: 21
+	Density: 21.00%
+Output: z6
+	Unique variables: 6
+	Unique variables/Area: 7.41%
+	Rows: 9
+	Columns: 9
+	Area: 81
+	Active memristors: 16
+	Density: 19.75%

@@ -1,0 +1,21 @@
+Benchmark: apex2
+Approach: Chakraborty
+Input: 39
+Output: 3
+Vertices: 1647
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 1645
+Columns: 1644
+Cumulative area: 940256
+Active variables: 0
+Variables: 2759
+Time: 64.39121580123901
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

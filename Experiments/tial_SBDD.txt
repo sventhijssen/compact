@@ -1,0 +1,21 @@
+Benchmark: tial
+Approach: SBDD
+Input: 14
+Output: 8
+Vertices: 1355
+Edges: 2620
+Label V: 2876
+Label H: 2872
+Label VH: 307
+Rows: 720
+Columns: 722
+Cumulative area: 519840
+Active variables: 0
+Variables: 2620
+Time: 27.50559663772583
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

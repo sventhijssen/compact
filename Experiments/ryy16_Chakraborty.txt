@@ -1,0 +1,21 @@
+Benchmark: ryy16
+Approach: Chakraborty
+Input: 16
+Output: 1
+Vertices: 18
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 18
+Columns: 17
+Cumulative area: 306
+Active variables: 0
+Variables: 27
+Time: 0.22279953956604004
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

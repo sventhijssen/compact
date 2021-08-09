@@ -1,0 +1,21 @@
+Benchmark: t481
+Approach: SBDD
+Input: 16
+Output: 1
+Vertices: 33
+Edges: 58
+Label V: 1520
+Label H: 1516
+Label VH: 159
+Rows: 20
+Columns: 20
+Cumulative area: 400
+Active variables: 0
+Variables: 58
+Time: 1.2055413722991943
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

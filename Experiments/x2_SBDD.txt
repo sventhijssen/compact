@@ -1,0 +1,21 @@
+Benchmark: x2
+Approach: SBDD
+Input: 10
+Output: 7
+Vertices: 74
+Edges: 139
+Label V: 1553
+Label H: 1548
+Label VH: 168
+Rows: 42
+Columns: 41
+Cumulative area: 1722
+Active variables: 0
+Variables: 139
+Time: 1.202531337738037
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

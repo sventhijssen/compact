@@ -1,0 +1,21 @@
+Benchmark: apex4
+Approach: SBDD
+Input: 9
+Output: 19
+Vertices: 1022
+Edges: 1910
+Label V: 1763
+Label H: 1761
+Label VH: 293
+Rows: 527
+Columns: 528
+Cumulative area: 278256
+Active variables: 0
+Variables: 1910
+Time: 370.42938256263733
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

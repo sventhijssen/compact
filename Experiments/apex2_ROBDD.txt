@@ -1,0 +1,45 @@
+Benchmark: apex2
+Approach: ROBDD
+Input: 39
+Output: 3
+Vertices: 1647
+Edges: 2759
+Label V: 723
+Label H: 725
+Label VH: 199
+Rows: 922
+Columns: 924
+Cumulative area: 296577
+Active variables: 0
+Variables: 2759
+Time: 52.40884757041931
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+
+Output: f0
+	Unique variables: 36
+	Unique variables/Area: 0.02%
+	Rows: 391
+	Columns: 392
+	Area: 153272
+	Active memristors: 1170
+	Density: 0.76%
+Output: f1
+	Unique variables: 36
+	Unique variables/Area: 0.04%
+	Rows: 304
+	Columns: 305
+	Area: 92720
+	Active memristors: 892
+	Density: 0.96%
+Output: f2
+	Unique variables: 35
+	Unique variables/Area: 0.06%
+	Rows: 233
+	Columns: 233
+	Area: 54289
+	Active memristors: 697
+	Density: 1.28%

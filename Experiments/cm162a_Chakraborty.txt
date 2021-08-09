@@ -1,0 +1,21 @@
+Benchmark: cm162a
+Approach: Chakraborty
+Input: 14
+Output: 5
+Vertices: 53
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 67
+Columns: 48
+Cumulative area: 740
+Active variables: 0
+Variables: 83
+Time: 0.7715260982513428
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

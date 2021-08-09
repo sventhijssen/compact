@@ -1,0 +1,5 @@
+networkx~=2.6.2
+pyparsing~=2.4.7
+PuLP~=2.4
+numpy~=1.21.1
+ltspice~=1.0.4

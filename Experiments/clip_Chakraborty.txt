@@ -1,0 +1,21 @@
+Benchmark: clip
+Approach: Chakraborty
+Input: 9
+Output: 5
+Vertices: 153
+Edges: 0
+Label V: 0
+Label H: 0
+Label VH: 0
+Rows: 186
+Columns: 148
+Cumulative area: 5954
+Active variables: 0
+Variables: 253
+Time: 1.4823172092437744
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

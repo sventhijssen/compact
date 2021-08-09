@@ -1,0 +1,21 @@
+Benchmark: clip
+Approach: SBDD
+Input: 9
+Output: 5
+Vertices: 255
+Edges: 472
+Label V: 116
+Label H: 115
+Label VH: 24
+Rows: 140
+Columns: 139
+Cumulative area: 19460
+Active variables: 0
+Variables: 472
+Time: 3.528400421142578
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

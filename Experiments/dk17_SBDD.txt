@@ -1,0 +1,21 @@
+Benchmark: dk17
+Approach: SBDD
+Input: 10
+Output: 11
+Vertices: 128
+Edges: 186
+Label V: 1611
+Label H: 1607
+Label VH: 179
+Rows: 69
+Columns: 70
+Cumulative area: 4830
+Active variables: 0
+Variables: 186
+Time: 1.6162443161010742
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

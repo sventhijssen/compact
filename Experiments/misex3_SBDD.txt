@@ -1,0 +1,21 @@
+Benchmark: misex3
+Approach: SBDD
+Input: 14
+Output: 14
+Vertices: 1302
+Edges: 2292
+Label V: 864
+Label H: 861
+Label VH: 103
+Rows: 676
+Columns: 675
+Cumulative area: 456300
+Active variables: 0
+Variables: 2292
+Time: 10.095263481140137
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+

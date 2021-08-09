@@ -1,0 +1,21 @@
+Benchmark: f51m
+Approach: SBDD
+Input: 14
+Output: 8
+Vertices: 1220
+Edges: 2377
+Label V: 2208
+Label H: 2203
+Label VH: 206
+Rows: 624
+Columns: 623
+Cumulative area: 388752
+Active variables: 0
+Variables: 2377
+Time: 4.624178409576416
+Simulation size: 0
+Minimum true signal: 0.00E+00
+Maximum false signal: 0.00E+00
+Average true signal: 0.00E+00
+Average false signal: 0.00E+00
+
