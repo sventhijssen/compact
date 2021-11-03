@@ -1,34 +1,47 @@
 import pathlib
 import platform
 
-from BenchmarkLog import BenchmarkLog
+from Log import Log
+from cli.ContextManager import ContextManager
 
-draw = False
-verbose = True
-log = False
-clean = True
-log_file = BenchmarkLog()
-simulate = False
-simulation_instance = None
-simulation_size = 10
-model_checking = False
+context_manager = ContextManager()
+log = Log()
+
+# Settings for BDD
+time_limit_bdd = 60
+bdd = "robdd"
+bdd_parser = None
+
+# Settings for COMPACT
+# Apply a time limit
+time_limit = None
+# Keep auxiliary files from CPLEX
+keep_files = False
+
+mapping_method = "compact"
+
 root = pathlib.Path(__file__).parent.absolute()
-use_cplex = True
+benchmark_path = root.joinpath('Benchmarks')
+abc_path = root.joinpath('abc')
 
 if platform.system() == 'Windows':
-    abc_cmd = ['bash', '-c', './abc']
-    sbdd_cmd = ['bash', '-c', './main']
-    ltspice_path = "C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe"
+    bash_cmd = ['bash', '-c']
+    lt_spice_dir = pathlib.Path('C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe')
+    lt_spice_cmd = ['./XVIIx64.exe', '-Run', '-b']
     cplex_path = '/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x64_win64/cplex.exe'
 elif platform.system() == 'Linux':
-    abc_cmd = ['./abc']
-    sbdd_cmd = ['./main']
-    ltspice_path = None
+    bash_cmd = ['/bin/bash', '-c']
+    lt_spice_dir = pathlib.Path('/home/sven/.wine/drive_c/Program Files/LTC/LTspiceXVII')
+    lt_spice_cmd = ['wine', './XVIIx64.exe', '-Run', '-b']
     cplex_path = '/opt/ibm/ILOG/CPLEX_Studio201/cplex/bin/x86-64_linux/cplex'
 elif platform.system() == 'Darwin':
-    abc_cmd = ['./abc']
-    sbdd_cmd = ['./main']
-    ltspice_path = None
+    bash_cmd = []
+    lt_spice_dir = None
+    lt_spice_cmd = None
     cplex_path = '/Applications/CPLEX_Studio201/cplex/bin/x86-64_osx/cplex'
 else:
-    raise Exception("Unsupported OS")
+    raise Exception("Unsupported OS: {}".format(platform.system()))
+
+abc_cmd = bash_cmd.copy()
+abc_cmd.extend(['"./abc"'])
+abc_cmd = ' '.join(abc_cmd)

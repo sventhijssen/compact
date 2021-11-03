@@ -1,0 +1,338 @@
+head     1.7;
+access   ;
+symbols  ;
+locks    ; strict;
+comment  @ * @;
+
+
+1.7
+date     93.05.17.15.57.53;  author kenm;  state Exp;
+branches ;
+next     1.6;
+
+1.6
+date     93.03.02.01.11.59;  author drickel;  state Exp;
+branches ;
+next     1.5;
+
+1.5
+date     93.02.22.16.48.35;  author kenm;  state Exp;
+branches ;
+next     1.4;
+
+1.4
+date     93.02.22.16.39.48;  author kenm;  state Exp;
+branches ;
+next     1.3;
+
+1.3
+date     93.02.22.16.15.04;  author kenm;  state Exp;
+branches ;
+next     1.2;
+
+1.2
+date     93.02.22.12.11.11;  author kenm;  state Exp;
+branches ;
+next     1.1;
+
+1.1
+date     93.01.27.11.02.26;  author kenm;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@#ifndef lint
+static char rcsid[] = "$Header: main.c,v 1.6 93/03/02 01:11:59 drickel Exp $";
+static char copyright[] = "Copyright (C) 1993 Mentor Graphics Corporation";
+#endif
+
+#include <stdio.h>
+#include <sys/param.h>
+#include <string.h>
+#define DECL /**/
+#include "nets.h"
+#include "token.h"
+
+char dbg[256] = { 0 };
+extern int ex_verbose;
+
+static void usage()
+{
+	fprintf(stderr, "Usage: esim [-flags] netlist.e [patterns.tv]\n");
+	fprintf(stderr, "Flags:\n");
+	fprintf(stderr, "    s   - silent, suppresses trace\n");
+	fprintf(stderr, "    r0  - reset all state to 0\n");
+	fprintf(stderr, "    r1  - reset all state to 1\n");
+	fprintf(stderr, "    r%%d - random init with seed\n");
+	fprintf(stderr, "patterns.tv defaults to netlist.tv\n");
+	fprintf(stderr, "A .Z suffix for the netlist or test pattern file\n");
+	fprintf(stderr, "will trigger automatic decompression\n");
+	exit(1);
+}
+
+main(argc, argv)
+int argc;
+char *argv[];
+{
+	FILE *fp, *tfp;
+	view *vp;
+	char *cp, *zcp;
+	char *home;
+	char *tvfile;
+	int rc, c;
+	int seed = -1;
+	int status;		/* file is compressed--need to pclose it */
+	char strbuf[MAXPATHLEN+1];
+
+	home = u_findhome(argv[0]);
+	if(argc == 1) usage();
+	if(argc > 1 && argv[1][0] == '-') {
+		for(cp = argv[1] + 1; *cp; cp++) {
+			c = *cp & 0xff;
+			switch(c) {
+			case 's':
+			case 'd':
+				dbg[c & 0xff] = 1;
+				break;
+			case 'r':
+				seed = 0;
+				cp++;
+				while(*cp && isdigit(*cp)) {
+					seed = seed * 10 + *cp++ - '0';
+				}
+				--cp;
+				break;
+			default:
+				u_crash("Unknown flag %c", c);
+			}
+		}
+		argc--; argv++;
+	}
+	if(argc == 2) {
+		tvfile = u_malloc(strlen(argv[1]) + 8);
+		strcpy(tvfile, argv[1]);
+		cp = strrchr(tvfile, '.');
+		if(cp && !strcmp(cp, ".Z")) *cp = 0;
+		cp = strrchr(tvfile, '.');
+		if(!cp) cp = tvfile + strlen(tvfile);
+		strcpy(cp, ".tv");
+	} else if(argc == 3) {
+		tvfile = argv[2];
+	}
+	if(dbg['d']) ex_verbose = TRUE;
+
+	/* initialization */
+	netlist_init();
+
+	sprintf(strbuf, "%s/../lib/iwls93.e", home);
+	status = u_openr(strbuf, &fp);
+	if(status != OPEN_FAIL) {
+		printf("Loading lib %s\n", strbuf);
+		ep_startparse(fp);
+		u_closer(fp, status);
+	}
+
+	status = u_openr(argv[1], &fp);
+	if(status == OPEN_FAIL) {
+		u_crash("Can't open input file '%s'", argv[1]);
+	}
+
+	ep_startparse(fp);
+
+	u_closer(fp, status);
+
+	vp = findview(findcell(findlibrary("user_lib"), "top"), "netlist");
+	if(!vp) u_crash("Can't find user_lib:top.netlist to convert");
+
+	flatten(vp, isprimitive);
+
+	status = u_openr(tvfile, &tfp);
+	if(status == OPEN_FAIL) {
+		u_crash("Can't open test pattern input file %s", tvfile);
+	}
+
+	rc = dosim(vp, tfp, !dbg['s'], seed);
+
+	u_closer(tfp, status);
+
+	ep_clearnametab();
+	exit(rc ? 1 : 0);
+}
+@
+
+
+1.6
+log
+@added u_openr stuff
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: main.c,v 1.5 93/02/22 16:48:35 kenm Exp $";
+d84 1
+a84 1
+	sprintf(strbuf, "%s/../lib/iwls3.e", home);
+@
+
+
+1.5
+log
+@added auto decompression
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: main.c,v 1.4 93/02/22 16:39:48 kenm Exp $";
+a38 1
+	int tvfile_c = FALSE, ediffile_c = FALSE; /* indicates compression */
+d41 1
+d85 2
+a86 2
+	fp = fopen(strbuf, "r");
+	if(fp) {
+d89 1
+a89 1
+		fclose(fp);
+d92 3
+a94 9
+	cp = strrchr(argv[1], '.');
+	if(!cp || strcmp(cp, ".Z")) {
+		fp = fopen(argv[1], "r");
+		if(!fp) u_crash("Can't open input file '%s'", argv[1]);
+	} else {
+		ediffile_c = TRUE;
+		sprintf(strbuf, "uncompress -c \'%s\'", argv[1]);
+		fp = popen(strbuf, "r");
+		if(!fp) u_crash("Could not uncompress input file '%s'", argv[1]);
+d99 1
+a99 2
+	if(ediffile_c) pclose(fp);
+	else fclose(fp);
+d106 3
+a108 11
+	cp = strrchr(tvfile, '.');
+	if(!cp || strcmp(cp, ".Z")) {
+		tfp = fopen(tvfile, "r");
+		if(!tfp) u_crash("Can't open test pattern input file %s",
+			tvfile);
+	} else {
+		tvfile_c = TRUE;
+		sprintf(strbuf, "uncompress -c \'%s\'", tvfile);
+		tfp = popen(strbuf, "r");
+		if(!tfp) u_crash("Could not uncompress test pattern file '%s'",
+			tvfile);
+d113 1
+a113 2
+	if(tvfile_c) pclose(tfp);
+	else fclose(tfp);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: main.c,v 1.3 93/02/22 16:15:04 kenm Exp $";
+d18 1
+a18 1
+	fprintf(stderr, "Usage: esim [-flags] netlist.edif [patterns.tv]\n");
+d25 2
+d36 1
+a36 1
+	char *cp;
+d71 2
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: main.c,v 1.2 93/02/22 12:11:11 kenm Exp $";
+d37 1
+d40 1
+a40 1
+	char pathbuf[MAXPATHLEN+1];
+d80 2
+a81 2
+	sprintf(pathbuf, "%s/../lib/iwls3.e", home);
+	fp = fopen(pathbuf, "r");
+d83 1
+a83 1
+		printf("Loading lib %s\n", pathbuf);
+d88 10
+a97 2
+	fp = fopen(argv[1], "r");
+	if(!fp) u_crash("Can't open input file '%s'", argv[1]);
+d100 4
+d109 12
+a120 2
+	tfp = fopen(tvfile, "r");
+	if(!tfp) u_crash("Can't open test pattern input file %s", tvfile);
+d124 2
+a125 1
+	fclose(tfp);
+@
+
+
+1.2
+log
+@added copyright
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: crash.c,v 1.2 93/02/22 11:54:10 kenm Exp $";
+a40 1
+	printf("%s\n", copyright);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 5
+d8 1
+d18 1
+a18 1
+	fprintf(stderr, "Usage: esim [-flags] file.edif file.tv\n");
+d20 5
+a24 1
+	fprintf(stderr, "    s  - silent\n");
+d36 3
+a38 1
+	int rc;
+d41 2
+d45 19
+a63 1
+		for(cp = argv[1] + 1; *cp; cp++) dbg[*cp & 0xff] = 1;
+d66 9
+a74 1
+	if(argc != 3) u_crash("Not enough args");
+a79 1
+	home = u_findhome(argv[0]);
+d97 2
+a98 2
+	tfp = fopen(argv[2], "r");
+	if(!tfp) u_crash("Can't open test pattern input file");
+d100 1
+a100 1
+	rc = dosim(vp, tfp, !dbg['s']);
+@

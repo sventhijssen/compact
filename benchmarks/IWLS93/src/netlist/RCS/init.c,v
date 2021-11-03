@@ -1,0 +1,68 @@
+head     1.2;
+access   ;
+symbols  ;
+locks    ; strict;
+comment  @ * @;
+
+
+1.2
+date     93.02.22.12.04.53;  author kenm;  state Exp;
+branches ;
+next     1.1;
+
+1.1
+date     93.01.27.11.02.58;  author kenm;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.2
+log
+@added copyright
+@
+text
+@#ifndef lint
+static char rcsid[] = "$Header: crash.c,v 1.2 93/02/22 11:54:10 kenm Exp $";
+static char copyright[] = "Copyright (C) 1993 Mentor Graphics Corporation";
+#endif
+
+#include "nets.h"
+
+cell inportcell, outportcell, biportcell;
+
+netlist_init()
+{
+	hashinit(&libhash);
+
+	inport.cellp = &inportcell;
+	inport.h.name = inportcell.h.name = "input";
+	inport.u.portdir = 'i';
+	inportinst.instof = &inport;
+	inport.viewtype = VIEW_PORT;
+
+	outport.cellp = &outportcell;
+	outport.h.name = outportcell.h.name = "output";
+	outport.u.portdir = 'o';
+	outportinst.instof = &outport;
+	outport.viewtype = VIEW_PORT;
+
+	biport.cellp = &biportcell;
+	biport.h.name = biportcell.h.name = "inout";
+	biport.u.portdir = 'b';
+	biportinst.instof = &biport;
+	biport.viewtype = VIEW_PORT;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 5
+@

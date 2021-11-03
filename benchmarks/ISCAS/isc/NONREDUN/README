@@ -1,0 +1,71 @@
+
+====================== file: ISCAS85/NONREDUN/README ========================
+
+
+		    Non-Redundant ISCAS '85 Benchmarks.
+		    ----------------------------------
+
+This directory contains a modified version of the ISCAS '85 benchmark set.
+Although they are functionally equivalent to the original circuits, the 
+logic redundancies have been removed by the method described in:
+
+	Logic Synthesis of 100-percent Testable Logic Networks,
+	Gert-Jan Tromp and A.J. van de Goor,
+	Proc. of ICCD 1991
+	Cambridge, MA, Oct. 1991
+
+The files in this directory were supplied by:
+
+		Gert-Jan Tromp
+		Section Computer Architecture
+		Department of Electrical Engineering
+		Delft University of Technology
+		The Netherlands
+		(T) +31 15 786177
+		(F) +31 15 784898
+		email: mars@duteca.et.tudelft.nl
+
+
+-----------------------------------------------------------------------------
+|** <March 4, 1993>  UPDATE: 5 Non-Redundant Benchmark Circuits Corrected **|
+-----------------------------------------------------------------------------
+
+	Dr. Wolfgang Kunz of the University of Hanover has brought to our
+notice that some of the non-redundant benchmarks earlier made available 
+in this directory were not functionally equivalent to their corresponding
+original ISCAS85 benchmark circuits. This discrepancy was caused by a bug
+in the earlier versions of the redundancy removal software, which caused it
+to remove some some non-redundant connections under certain circumstances. 
+
+	A corrected version of the redundancy removal software has since
+been developed by Gert-Jan Tromp. The non-redundant benchmark circuits 
+which were not functional equivalents of their ISCAS85 counterparts have
+been identified and corrected by Dr. Tromp and Dr. Kunz. The functionality
+of the corrected versions of the non-redundant benchmark circuits has been
+tested using 3.2 million random patterns. 
+
+	A total of five non-redundant benchmarks were modified. These 
+are: c1908nr.isc, c2670nr.isc, c3540nr.isc, c5315nr.isc and c7552nr.isc.
+The functionally incorrect version of each of these benchmarks has now been
+replaced by the corrected version. The earlier (faulty) versions have been
+retained for archival/reference purposes, but they have now been renamed 
+as follows:
+----------------------------------------------------------------------------
+|Name of  |	   |Corrected version of|	  |Earlier (faulty) version|
+|Benchmark|	   |benchmark is in file|	  |of circuit is in file   |
+----------------------------------------------------------------------------
+|  c1908		c1908nr.isc			c1908nr_old.isc    |
+|  c2670	 	c2670nr.isc			c2670nr_old.isc    |
+|  c3540	 	c3540nr.isc 			c3540nr_old.isc    |
+|  c5315	 	c5315nr.isc 			c5315nr_old.isc    |
+|  c7552	 	c7552nr.isc 			c7552nr_old.isc    |
+----------------------------------------------------------------------------
+
+	For further details regarding this addition to the non-redundant
+set of ISCAS85 benchmarks, please read the latest Benchmark Newsletter,
+Newsletter93.06, available in the ~ftp/pub/benchmark/NEWS directory. Any
+questions regarding these, or any other benchmarks may be directed to the
+Benchmark Administrator (Maitreya Sengupta), by email to the address:
+'sengupta@mcnc.org'; or by telephone at (919) 248-1454.
+
+___________________________________________________________________________

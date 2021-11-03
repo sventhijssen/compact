@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.eecs.umich.edu/~jhayes/iscas/s298.html -->
+<HTML><HEAD><TITLE>s298</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" 
+name=Template></HEAD>
+<BODY vLink=#800080 link=#0000ff><B><FONT size=5>
+<P align=center>ISCAS-89 s298 Traffic Light Controller</P></B></FONT>
+<P align=center><IMG height=331 src="s298_soubory/s298.gif" width=433></P><B>
+<P>Statistics: </B>3 inputs; 6 outputs; 133 gates;</P><B>
+<P>Function: </B>The high-level model of the s298 traffic light controller is 
+shown above. After being reset by activating input I0, the controller has a 
+repeating green-yellow-red light sequence that is 20 clock cycles in length. For 
+the main direction of travel, the sequence is: 14 green, two yellow, and four 
+red; for the opposing direction: 16 red, two green and two yellow. When the I1 
+input is pulsed, the controller changes to a repeating light pattern that is 
+twice as fast, that is 10 clock cycles in length. If the I2 input is pulsed, the 
+controller enters a blinking red/blinking yellow mode. M1-M6 are simple "random" 
+combinational logic blocks that generate the six light values; M7 is a status 
+logic block; M8 is a modulo-10 counter; and M9 controls the two mode lines.
+<DIV></DIV>
+<P></P><B>
+<P>Models:</P>
+<UL></B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s298.isc">s298 ISCAS-89 
+  netlist</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s298.v">s298 Verilog 
+  hierarchical structural model</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s298b.v">s298 Verilog 
+  hierarchical behavioral model</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s298.tests">s298 complete 
+  gate-level tests</A></LI></UL><FONT size=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY></HTML>

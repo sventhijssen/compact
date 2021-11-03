@@ -1,0 +1,21 @@
+# $Header: Makefile,v 1.5 93/05/16 18:27:23 kenm Exp $
+# Copyright (C) 1993 Mentor Graphics Corporation
+
+SRCS = edif_actions.c flatten.c init.c misc.c
+OBJS = edif_actions.o flatten.o init.o misc.o
+
+CFLAGS = -O2 $(XCFLAGS) -I../util -I../edifparse
+LIB = netlist.a
+
+lib $(LIB): $(OBJS)
+	ar cr $(LIB) $(OBJS)
+	ranlib $(LIB)
+
+clean:; /bin/rm -f $(OBJS) $(LIB)
+
+###
+edif_actions.o: nets.h ../util/util.h ../util/hash.h ../edifparse/eprop.h
+flatten.o: nets.h ../util/util.h ../util/hash.h ../edifparse/eprop.h
+init.o: nets.h ../util/util.h ../util/hash.h ../edifparse/eprop.h
+misc.o: nets.h ../util/util.h ../util/hash.h ../edifparse/eprop.h \
+	../edifparse/token.h

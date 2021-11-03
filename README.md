@@ -1,4 +1,6 @@
-# COMPACT: Flow-Based Computing on Nanoscale Crossbars with Minimal Semiperimeter
+# ROBDD TO CROSSBAR
+
+ROBDD TO CROSSBAR is a Python library for a collection of tools for flow-based computing. It comprises of COMPACT, CHECK, and related tools for constructing crossbar designs.
 
 ## Introduction
 ##### Flow-based computing
@@ -8,7 +10,7 @@ The memristors are assigned Boolean literals (Boolean variables and their negati
 Definition:
 Given a crossbar design for a Boolean function φ, then the Boolean function φ evaluates to true if and only if there exists a path along low resistive memristors from the input nanowire (bottom most nanowire) to the output nanowire (top most nanowire) when a high input voltage is applied to the input nanowire.
 
-![Flow-based computing](Extra/demo.gif)
+![Flow-based computing](extra/demo.gif)
 
 ##### Publications
 - Thijssen, S., Jha, S. K., & Ewetz, R. (2021, February). [COMPACT: Flow-Based Computing on Nanoscale Crossbars with Minimal Semiperimeter](https://ieeexplore.ieee.org/abstract/document/9473995). In 2021 Design, Automation & Test in Europe Conference & Exhibition (DATE) (pp. 232-237). IEEE. **Nominated for Best Paper Award.** 
@@ -32,18 +34,19 @@ Given a crossbar design for a Boolean function φ, then the Boolean function φ 
 
 ## Installation
 
-Clone this git repository and the required submodule for ABC. Make sure to clone the submodule from [here](https://github.com/sventhijssen/abc).
+##### Submodules
+Clone this git repository and the required submodules ABC, Z3 and the EPFL benchmarks. For ABC, make sure to clone the submodule from [here](https://github.com/sventhijssen/abc).
+Clone the submodules using the following command:
 
+```bash
+git submodule update --init --recursive
+```
+
+##### LTspice
 (Optional for Windows) Download and install [LTspice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html). Then, configure the path to LTspice in `config.py`:
 
 ```python
 lt_spice = "C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe"
-```
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the Python dependencies in ``requirements.txt``.
-
-```bash
-pip3 install -r requirements.txt
 ```
 
 Make sure the packages ``g++``, ``gcc`` and ``libreadline-dev`` are installed for your Linux environment.
@@ -54,36 +57,53 @@ sudo apt-get install g++
 sudo apt-get install libreadline-dev
 ```
 
-Compile the ``ABC`` tool in the directory _ABC_. 
+##### ABC
+Compile the ``ABC`` tool in the directory _abc_. 
 
 ```bash
+cd abc
 make
 ```
 
-Compile the ``SBDD`` tool in the directory _SBDD_. 
+##### Z3
+Compile the ``Z3`` tool in the directory _z3_.
 
 ```bash
-g++ main.cpp bdd.cpp export.cpp pla.cpp sbdd.cpp uniData.cpp -o main
+cd z3
+python3 scripts/mk_make.py --python
+cd build
+make
+sudo make install
 ```
 
+##### CPLEX
 By default, CPLEX is the ILP solver. 
 Download and install [CPLEX](https://www.ibm.com/analytics/cplex-optimizer), 
 and make sure CPLEX is installed and the variable `cplex_path` is set correctly for your OS. 
 If the default ILP solver is to be used, set `use_cplex = False` in `config.py`.
 
-## Usage
-
-In the directory [_Examples_](/Examples), some examples are given on how to use COMPACT from command line.
+##### Python packages and dependencies
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the Python dependencies in ``requirements.txt``.
 
 ```bash
-python3 Main.py robdd Benchmarks/5xp1.pla --v -l
+pip3 install -r requirements.txt
+```
+
+##### LuaLaTeX
+Install ``lualatex``.
+
+## Usage
+
+In the directory [_examples_](/examples), some examples are given on how to use COMPACT from command line.
+
+```bash
+python3 cli/main.py new_log t481.log | read benchmarks/t481.pla | robdd | compact
 ```
 
 In the directory [_Experiments_](/Experiments), an example is given on how to use COMPACT with the Python API.
 
 ## Version
-COMPACT version 1.0.0.  
-A new major release is scheduled in the next months.
+COMPACT version 2.0.0.  
 
 ## Contact
 _Sven Thijssen  
@@ -93,7 +113,6 @@ http://sventhijssen.com/_
 
 ## References
 - [ABC](https://people.eecs.berkeley.edu/~alanmi/abc/)
-- [SBDD](https://github.com/semencher/SBDD)
 - [RevLib](http://www.informatik.uni-bremen.de/rev_lib/)
 - [CPLEX](https://www.ibm.com/analytics/cplex-optimizer)
 - [LTspice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html)

@@ -1,0 +1,3 @@
+/bin/rm -f esim
+purify cc -z -g -I../util -I../edifparse -I../netlist main.o dosim.o ../edifparse/edifparse.a ../netlist/netlist.a ../util/util.a -o esim.new
+mv -f esim.new esim

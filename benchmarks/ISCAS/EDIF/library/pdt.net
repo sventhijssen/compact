@@ -1,0 +1,280 @@
+//**********************************************************
+//
+//  FILE: pdt.net
+//
+//
+//**********************************************************
+//                                                         *
+//    Politecnico di Torino library for SUNRISE TESTGEN    *
+//                                                         *
+//**********************************************************
+//
+//  Creation date: 01.12.95
+//  Author       : F. Corno
+//  Adapted from : G. Medina
+//  Format       : NDL
+//  SUNRISE rel. : 2.0/2.1
+//
+
+COMPILE;
+DIRECTORY MASTER;
+
+
+
+//------------------------------------------------
+//                     AND
+//------------------------------------------------
+
+MODULE And_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = and (I1, I2);
+END MODULE;
+
+MODULE And3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = and (I1, I2, I3);
+END MODULE;
+
+MODULE And4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = and (I1, I2, I3, I4);
+END MODULE;
+
+MODULE And5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = and (I1, I2, I3, I4, I5);
+END MODULE;
+
+
+//------------------------------------------------
+//                     NAND
+//------------------------------------------------
+
+MODULE Nand_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = nand (I1, I2);
+END MODULE;
+
+MODULE Nand3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = nand (I1, I2, I3);
+END MODULE;
+
+MODULE Nand4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = nand (I1, I2, I3, I4);
+END MODULE;
+
+MODULE Nand5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = nand (I1, I2, I3, I4, I5);
+END MODULE;
+
+
+//------------------------------------------------
+//                     OR
+//------------------------------------------------
+
+MODULE Or_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = or (I1, I2);
+END MODULE;
+
+MODULE Or3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = or (I1, I2, I3);
+END MODULE;
+
+MODULE Or4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = or (I1, I2, I3, I4);
+END MODULE;
+
+MODULE Or5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = or (I1, I2, I3, I4, I5);
+END MODULE;
+
+
+//------------------------------------------------
+//                     NOR
+//------------------------------------------------
+
+MODULE Nor_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = nor (I1, I2);
+END MODULE;
+
+MODULE Nor3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = nor (I1, I2, I3);
+END MODULE;
+
+MODULE Nor4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = nor (I1, I2, I3, I4);
+END MODULE;
+
+MODULE Nor5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = nor (I1, I2, I3, I4, I5);
+END MODULE;
+
+//------------------------------------------------
+//   XOR
+//------------------------------------------------
+
+MODULE Xor_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = xor (I1, I2);
+END MODULE;
+
+MODULE Xor3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = xor (I1, I2, I3);
+END MODULE;
+
+MODULE Xor4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = xor (I1, I2, I3, I4);
+END MODULE;
+
+MODULE Xor5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = xor (I1, I2, I3, I4, I5);
+END MODULE;
+
+
+//------------------------------------------------
+//   XNOR
+//------------------------------------------------
+
+MODULE Xnor_gate ;
+        INPUTS  I1, I2;
+        OUTPUTS O;
+        DEFINE
+        O = xnor (I1, I2);
+END MODULE;
+
+MODULE Xnor3_gate ;
+        INPUTS  I1, I2, I3;
+        OUTPUTS O;
+        DEFINE
+        O = xnor (I1, I2, I3);
+END MODULE;
+
+MODULE Xnor4_gate ;
+        INPUTS  I1, I2, I3, I4;
+        OUTPUTS O;
+        DEFINE
+        O = xnor (I1, I2, I3, I4);
+END MODULE;
+
+MODULE Xnor5_gate ;
+        INPUTS  I1, I2, I3, I4, I5;
+        OUTPUTS O;
+        DEFINE
+        O = xnor (I1, I2, I3, I4, I5);
+END MODULE;
+
+
+//------------------------------------------------
+//                   INV
+//------------------------------------------------
+
+MODULE Inv_gate ;
+        INPUTS  I1 ;
+        OUTPUTS O;
+        DEFINE
+        O = not (I1);
+END MODULE;
+
+
+//------------------------------------------------
+//                   BUF
+//------------------------------------------------
+
+MODULE Buf_gate ;
+        INPUTS  I1 ;
+        OUTPUTS O;
+        DEFINE
+        O = buf(I1);
+END MODULE;
+
+//----------------------------------------------------------
+// 
+//                 F L I P     F L O P
+// 
+//----------------------------------------------------------
+
+
+MODULE Flip_Flop_D;
+        INPUTS  D, CK;
+        OUTPUTS Q;
+        DEFINE
+        Q  = dff_e(D, CK);
+END MODULE;
+
+MODULE Flip_Flop_D_reset;
+        INPUTS  D, CK, RESET;
+        OUTPUTS Q;
+        DEFINE
+        Q  = dff_ec(D, CK, RESET);
+END MODULE;
+
+MODULE Flip_Flop_D_preset;
+        INPUTS  D, CK, PRESET;
+        OUTPUTS Q;
+        DEFINE
+        Q  = dff_es (D, CK, PRESET);
+END MODULE;
+
+MODULE Flip_Flop_D_reset_preset; 
+        INPUTS  PRESET, D, CK, RESET;
+        OUTPUTS Q;
+        DEFINE
+        Q  = dff_ecs (D, CK, RESET, PRESET);
+END MODULE;
+
+END COMPILE ;
+END;

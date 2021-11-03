@@ -1,0 +1,9 @@
+donfile		output never toggles
+kirkman		wild card next state
+mark1		outputs (10 4 3) never toggle
+modulo12	output never toggles
+s1a		output never toggles
+s208		output (1) only toggles from unreachable state
+s420		output (1) only toggles from unreachable state
+s8		output never toggles
+scf		outputs (41 36) never toggle

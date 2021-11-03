@@ -1,0 +1,2 @@
+class InfeasibleSolutionException(Exception):
+    pass

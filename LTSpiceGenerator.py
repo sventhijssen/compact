@@ -1,13 +1,10 @@
-from typing import List
-
-from Memristor import Memristor
+from MemristorCrossbar import MemristorCrossbar
 
 
 class LTSpiceGenerator:
 
     @staticmethod
-    def write_circuit(rows: int, columns: int, output_variables: List[str], matrix_instance: List[List[Memristor]]):
-
+    def write_circuit(crossbar: MemristorCrossbar):
         file_name = 'circuit.cir'
 
         r_out = 100
@@ -29,20 +26,20 @@ class LTSpiceGenerator:
             f.write('\n')
 
             # Begin memristor crossbar
-            for i in range(len(matrix_instance)):
-                for j in range(len(matrix_instance[i])):
-                    if matrix_instance[i][j].literal.positive:
+            for i in range(crossbar.rows):
+                for j in range(crossbar.columns):
+                    if crossbar.get_memristor(i, j).literal.positive:
                         xo = '1.0'
                     else:
                         xo = '0.00001'
                     f.write('X_{}_{} m{} n{} mem_dev xo={}\n'.format(i, j, i, j, xo))
             # End memristor crossbar
 
-            f.write('V1 m{} 0 1\n'.format(rows-1))
+            f.write('V1 m{} 0 10\n'.format(crossbar.rows-1))
 
-            for i in range(len(output_variables)):
-                f.write('Rout{} m{} 0 {}\n'.format(i, i, r_out))
-            f.write('.tran 0.1ms startup\n')
+            for (output_variable, (row, _)) in crossbar.get_output_nanowires().items():
+                f.write('R_{} m{} 0 {}\n'.format(output_variable, row, r_out))
+            # f.write('.tran 0.1ms startup\n')
             f.write('.end\n')
 
             f.close()

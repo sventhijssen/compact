@@ -1,0 +1,16 @@
+t 4; f p_1gat_0_ 1; f p_2gat_1_ 0; f p_3gat_2_ 1; f p_6gat_3_ 0; f p_7gat_4_ 0;
+t 25; c p_22gat_10_ 1; c p_23gat_9_ 0;
+t 54; f p_1gat_0_ 0; f p_2gat_1_ 1; f p_3gat_2_ 0; f p_6gat_3_ 1;
+t 75; c p_22gat_10_ 1; c p_23gat_9_ 1;
+t 104; f p_3gat_2_ 1; f p_7gat_4_ 1;
+t 125; c p_22gat_10_ 0; c p_23gat_9_ 0;
+t 154; f p_1gat_0_ 1; f p_2gat_1_ 0; f p_3gat_2_ 0;
+t 175; c p_22gat_10_ 0; c p_23gat_9_ 1;
+t 204; f p_2gat_1_ 1; f p_3gat_2_ 1; f p_6gat_3_ 0; f p_7gat_4_ 0;
+t 225; c p_22gat_10_ 1; c p_23gat_9_ 1;
+t 254; f p_1gat_0_ 0; f p_3gat_2_ 0; f p_6gat_3_ 1; f p_7gat_4_ 1;
+t 275; c p_22gat_10_ 1; c p_23gat_9_ 1;
+t 304; f p_1gat_0_ 1; f p_3gat_2_ 1; f p_7gat_4_ 0;
+t 325; c p_22gat_10_ 1; c p_23gat_9_ 0;
+t 354; f p_1gat_0_ 0; f p_3gat_2_ 0; f p_6gat_3_ 0;
+e;

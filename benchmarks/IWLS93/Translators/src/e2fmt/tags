@@ -1,0 +1,51 @@
+Mmain	main.c	/^main(argc, argv)$/
+addinstance	../netlist/misc.c	/^instance *addinstance(vp, instof)$/
+addnet	../netlist/misc.c	/^net *addnet(vp)$/
+computehash	../util/hash.c	/^static int computehash(ht, name)$/
+deleteinstance	../netlist/misc.c	/^void deleteinstance(ip)$/
+deletenet	../netlist/misc.c	/^void deletenet(np)$/
+dissolve	../netlist/flatten.c	/^void dissolve(tip)$/
+dprintf	../netlist/edif_actions.c	/^void dprintf(va_alist)$/
+e2blif_init	../netlist/init.c	/^e2blif_init()$/
+ex_design	../netlist/edif_actions.c	/^int ex_design(designname, libname, cellname)$/
+ex_endcell	../netlist/edif_actions.c	/^int ex_endcell()$/
+ex_endlibrary	../netlist/edif_actions.c	/^int ex_endlibrary()$/
+ex_endnet	../netlist/edif_actions.c	/^int ex_endnet()$/
+ex_endview	../netlist/edif_actions.c	/^int ex_endview()$/
+ex_instance	../netlist/edif_actions.c	/^int ex_instance(name, libname, cellname, viewname)/
+ex_join	../netlist/edif_actions.c	/^int ex_join(pname, iname)$/
+ex_port	../netlist/edif_actions.c	/^int ex_port(name, dir)$/
+ex_startcell	../netlist/edif_actions.c	/^int ex_startcell(cellname)$/
+ex_startlibrary	../netlist/edif_actions.c	/^int ex_startlibrary(libtype, libname)$/
+ex_startnet	../netlist/edif_actions.c	/^int ex_startnet(name)$/
+ex_startview	../netlist/edif_actions.c	/^int ex_startview(viewname)$/
+findcell	../netlist/misc.c	/^cell *findcell(lp, name)$/
+findlibrary	../netlist/misc.c	/^library *findlibrary(name)$/
+findview	../netlist/misc.c	/^view *findview(cellp, name)$/
+fixnc	../netlist/misc.c	/^fixnc(vp)$/
+fixncinsthash	../netlist/misc.c	/^fixncinsthash(ht)$/
+flatten	../netlist/flatten.c	/^flatten(vp, testfunc)$/
+fold	writeslif.c	/^fold(fp)$/
+hashdelete_f	../util/hash.c	/^int hashdelete_f(ht, nhe)$/
+hashfind	../util/hash.c	/^hashentry *hashfind(ht, name)$/
+hashinit	../util/hash.c	/^void hashinit(ht)$/
+hashinsert_f	../util/hash.c	/^int hashinsert_f(ht, nhe)$/
+hookup	../netlist/misc.c	/^void hookup(ptp, np)$/
+isprimitive	../netlist/misc.c	/^int isprimitive(vp)$/
+mergenets	../netlist/misc.c	/^void mergenets(tonp, fromnp)$/
+pinnetname	writeslif.c	/^char *pinnetname(ip, pname)$/
+printports	writeslif.c	/^void printports(fp, ht, cmd, ptype)$/
+setprimtype	../netlist/misc.c	/^setprimtype(vp)$/
+u_calloc	../util/alloc.c	/^void *u_calloc(nelem, elsize)$/
+u_crash	../util/crash.c	/^void u_crash(va_alist)$/
+u_currenttime	../util/time.c	/^long u_currenttime()$/
+u_findhome	../util/home.c	/^char *u_findhome(argv0)$/
+u_free	../util/alloc.c	/^void u_free(p)$/
+u_getwd	../util/home.c	/^char *u_getwd()$/
+u_malloc	../util/alloc.c	/^void *u_malloc(size)$/
+u_realloc	../util/alloc.c	/^void *u_realloc(p, size)$/
+u_strsave	../util/alloc.c	/^char *u_strsave(str)$/
+u_timestring	../util/time.c	/^char *u_timestring(time)$/
+unhook	../netlist/misc.c	/^void unhook(ptp)$/
+writeblif	writeblif.c	/^writeblif(fp, vp)$/
+writeslif	writeslif.c	/^writeslif(fp, vp)$/

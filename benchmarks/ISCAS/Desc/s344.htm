@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.eecs.umich.edu/~jhayes/iscas/s344.html -->
+<HTML><HEAD><TITLE>s344</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" 
+name=Template></HEAD>
+<BODY vLink=#800080 link=#0000ff><B><FONT size=5>
+<P align=center>ISCAS-89 s344/s349 4x4 Add-Shift Multiplier</P></B></FONT>
+<P align=center><IMG height=448 src="s344_soubory/s344.gif" width=704></P><B>
+<P>Statistics: </B>9 inputs; 11 outputs; 175/176 gates;</P><B>
+<P>Function: </B>The high-level functional model for the s344/s349 4-bit 
+multiplier is shown above. It consists of 16 multiplexers, eight D-type 
+flip-flops, four D-type flip-flops with reset, three T -type flip-flops, one 
+4-bit full adder, and one 4-bit AND. The circuit is controlled by a 3-bit 
+counter, that when reset by the Start input, counts from 0 to 5. During a count 
+of 0, the A input is loaded; between the counts 1-4, an add and shift procedure 
+forms the multiplication product; and at a count of 5, the Ready line goes to 1, 
+and holds the counter state fixed.<FONT size=2>&nbsp;</P></FONT>
+<P>s344 and s349 have the same function, but have slightly different 
+implementations.</P><B>
+<P>Models:</P>
+<UL></B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s344.isc">s344 ISCAS-89 
+  netlist</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s349.isc">s349 ISCAS-89 
+  netlist</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s349.v">s349 Verilog 
+  hierarchical structural model</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s344b.v">s344/s349 
+  Verilog hierarchical behavioral model</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/s344.tests">s344/s349 
+  complete gate-level tests</A></LI></UL><FONT size=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY></HTML>

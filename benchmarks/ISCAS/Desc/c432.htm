@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.eecs.umich.edu/~jhayes/iscas/c432.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" 
+name=Template></HEAD>
+<BODY vLink=#800080 link=#0000ff bgColor=#ffffff><B><FONT size=5>
+<P align=center>ISCAS-85 C432 27-channel interrupt controller</P></B></FONT>
+<P align=center><IMG height=394 src="c432_soubory/c432.gif" width=469></P><B>
+<P>Statistics: </B>36 inputs; 7 outputs; 160 gates; <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432bus.html">bus 
+translations</A></P><B>
+<P>Function: </B>c432 is a 27-channel interrupt controller. The input channels 
+are grouped into three 9-bit buses (we call them A, B and C), where the bit 
+position within each bus determines the interrupt request priority. A forth 
+9-bit input bus (called E) enables and disables interrupt requests within the 
+respective bit positions. The figure above concisely represents the circuit. The 
+figure above contains the modules labeled <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m1.html">M1</A>, <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m2.html">M2</A>, <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m3.html">M3</A>, <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m4.html">M4</A>, and <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m5.html">M5</A>, which contain 
+the underlying logic. </P>
+<P>The interrupt controller has three interrupt request buses A, B and C, each 
+having nine bits or channels, and one channel-enable bus E. The following 
+priority rules apply: A[i] &gt; B[j] &gt; C[k], for any i, j, k; i.e., bus A has 
+the highest priority and bus C the lowest. Within each bus, a channel with a 
+higher index has priority over one with a lower index; for example, A[i] &gt; 
+A[j], if i &gt; j. If E[i] = 0, then the A[i], B[i], and C[i] inputs are 
+disregarded.</P>
+<P>The seven outputs PA, PB, PC and Chan[3:0] specify which channels have 
+acknowledged interrupt requests. Only the channel of highest priority in the 
+requesting bus of highest priority is acknowledged. One exception is that if two 
+or more interrupts produce requests on the channel that is acknowledged, each 
+bus is acknowledged. For example, if A[4], A[2], B[6] and C[4] have requests 
+pending, A[4] and C[4] are acknowledged. Module M5 is a 9-line-to-4-line 
+priority encoder. The output line numbered 421 actually produces the inverted 
+Chan[3] response of that shown in the <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c432m5tt.html">truth table</A>. We 
+have taken the liberty of adding an inverter to output 421 to form Chan[3] for 
+this table (but not in the models).&nbsp;</P><B>
+<P>Models:</P>
+<UL></B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c432.isc">c432 ISCAS-85 
+  netlist</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c432.v">c432 Verilog 
+  hierarchical structural model</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c432b.v">c432 Verilog 
+  hierarchical behavioral model</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c432.tests">c432 complete 
+  gate-level tests</A></LI></UL><B>
+<P>&nbsp;</P></B>
+<P>&nbsp;</P></BODY></HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.eecs.umich.edu/~jhayes/iscas/c499.html -->
+<HTML><HEAD><TITLE>c499</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" 
+name=Template></HEAD>
+<BODY vLink=#800080 link=#0000ff><B><FONT size=5>
+<P align=center>ISCAS-85 C499/C1355 32-Bit Single-Error-Correcting 
+Circuit</P></B></FONT>
+<P align=center><IMG height=186 src="c499_soubory/c499.gif" width=433></P><B>
+<P>Statistics: </B>41 inputs; 32 outputs; 202/546 gates; <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c499bus.html">bus 
+translations</A></P><B>
+<P>Function: </B>c499 was found to be a single-error-correcting circuit as shown 
+above. The 41 inputs are combined to form an 8-bit internal bus S, which then 
+combines with 32 primary inputs to form the 32 primary outputs. The <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c499sequ.html">boolean expressions 
+defining S</A> form the <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c499hmatrix.html">H matrix for a 
+(40,32) Hamming code </A>[See C. L. Chen and M. Y. Hsiao. Error-Correcting Codes 
+for Semiconductor Memory Applications: A State-of-the-Art Review. IBM Journal of 
+Research &amp; Development, vol. 28, pp. 124-134, March 1984]. If H_ij (the 
+element in row i and column j) is 1, then ID_j (or IC_j-32 if j &gt; 31) is used 
+in S_i . Module M2 contains the necessary correcting logic, so c499 can correct 
+single-bit errors; however, no error-detection logic is present. The S lines are 
+formulated to generate a unique syndrome for each input line in error. The 
+syndromes are the column vectors of H. If syndrome i is seen, output OD_i is 
+inverted. This is specified by the <A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c499oequ.html">32 output 
+equations</A> realized by M2.</P>
+<P>The c1355 circuit has the same overall function as c499; it differs in that 
+all XOR primitives of c499 are expanded to their four-NAND-gate 
+equivalents.</P><FONT size=2>
+<P>&nbsp;</FONT><B>Models:</P>
+<UL></B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c499.isc">c499 ISCAS-85 
+  netlist</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c499.v">c499 Verilog 
+  hierarchical structural model</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c499b.v">c499/1355 
+  Verilog hierarchical behavioral model</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c499.tests">c499 complete 
+  gate-level tests</A> 
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c1355.isc">c1355 ISCAS-85 
+  netlist</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c1355.v">c1355 Verilog 
+  hierarchical structural model</A><B> </B>
+  <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c1355.tests">c1355 
+  complete gate-level tests</A></LI></UL><FONT size=2>
+<P>&nbsp;</P></FONT></BODY></HTML>

@@ -1,0 +1,214 @@
+head     1.5;
+access   ;
+symbols  ;
+locks    ; strict;
+comment  @ * @;
+
+
+1.5
+date     93.05.17.15.56.30;  author kenm;  state Exp;
+branches ;
+next     1.4;
+
+1.4
+date     93.03.08.17.52.30;  author kenm;  state Exp;
+branches ;
+next     1.3;
+
+1.3
+date     93.02.22.12.29.52;  author kenm;  state Exp;
+branches ;
+next     1.2;
+
+1.2
+date     93.02.02.13.35.05;  author kenm;  state Exp;
+branches ;
+next     1.1;
+
+1.1
+date     93.01.27.11.02.11;  author kenm;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.5
+log
+@update lib file name
+@
+text
+@#ifndef lint
+static char rcsid[] = "$Header: main.c,v 1.4 93/03/08 17:52:30 kenm Exp $";
+static char copyright[] = "Copyright (C) 1993 Mentor Graphics Corporation";
+#endif
+
+#include <sys/param.h>
+#include <stdio.h>
+#define DECL /**/
+#define RCSHEADERS
+#include "nets.h"
+#include "token.h"
+
+char dbg[256] = { 0 };
+extern int ex_verbose;
+
+static void usage()
+{
+	fprintf(stderr, "Usage: e2fmt -[flags] <file1>.e <file2>.e ...\n");
+	fprintf(stderr, "Flags:   l  - load iwls93/bin/../lib/iwls93.e\n");
+	fprintf(stderr, "         f  - Flatten the hierarchy\n");
+	fprintf(stderr, "         s  - write slif\n");
+	fprintf(stderr, "         b  - write blif\n");
+	fprintf(stderr, "         e  - write edif\n");
+	fprintf(stderr, "You must select exactly one of s b or e\n");
+	exit(1);
+}
+
+main(argc, argv)
+int argc;
+char *argv[];
+{
+	FILE *fp, *ofp;
+	view *vp;
+	char *cp;
+	int apos;
+	int ostatus;
+
+	if(argc <= 1) usage();
+	apos = 1;
+	if(argc > 1 && argv[1][0] == '-') {
+		for(cp = argv[1] + 1; *cp; cp++) dbg[*cp & 0xff] = 1;
+		apos++;
+	}
+	if((dbg['b'] + dbg['e'] + dbg['s']) != 1) {
+		fprintf(stderr, "Error: Output format must be selected\n");
+		usage();
+	}
+
+	if(argc - apos <= 0) {
+		fprintf(stderr, "Error: Not enough args\n");
+		usage();
+	}
+	if(dbg['d']) ex_verbose = TRUE;
+
+	/* initialization */
+	netlist_init();
+
+	if(dbg['l']) {
+		char *home;
+		char pathbuf[MAXPATHLEN+1];
+
+		home = u_findhome(argv[0]);
+		sprintf(pathbuf, "%s/../lib/iwls93.e", home);
+		fp = fopen(pathbuf, "r");
+		if(fp) {
+			fprintf(stderr, "Loading lib %s\n", pathbuf);
+			ep_startparse(fp);
+			fclose(fp);
+		}
+	}
+
+	for(; apos < argc; apos++) {
+		ostatus = u_openr(argv[apos], &fp);
+		if(ostatus == OPEN_FAIL)
+			u_crash("Can't open input file '%s'", argv[apos]);
+		ep_startparse(fp);
+		u_closer(fp, ostatus);
+	}
+
+	vp = findview(findcell(findlibrary("user_lib"), "top"), "netlist");
+	if(!vp) u_crash("Can't find user_lib:top.netlist to convert");
+
+	ofp = stdout;
+	if(!dbg['e']) {
+		fprintf(ofp, "#\n# Written by e2fmt %s",
+			u_timestring(u_currenttime()));
+	}
+	if(dbg['f']) flatten(vp, isprimitive);
+	if(dbg['b']) writeblif(ofp, vp);
+	else if(dbg['s']) writeslif(ofp, vp);
+	else writeedif(ofp, vp);
+
+	fclose(ofp);
+	ep_clearnametab();
+	exit(0);
+}
+@
+
+
+1.4
+log
+@added auto decompression of input files
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: main.c,v 1.3 93/02/22 12:29:52 kenm Exp $";
+d19 1
+a19 1
+	fprintf(stderr, "Flags:   l  - load iwls93/bin/../lib/iwls3.e\n");
+d63 1
+a63 1
+		sprintf(pathbuf, "%s/../lib/iwls3.e", home);
+@
+
+
+1.3
+log
+@added copyright
+@
+text
+@d2 1
+a2 1
+static char rcsid[] = "$Header: crash.c,v 1.2 93/02/22 11:54:10 kenm Exp $";
+d36 1
+d73 3
+a75 2
+		fp = fopen(argv[apos], "r");
+		if(!fp) u_crash("Can't open input file '%s'", argv[1]);
+d77 1
+a77 1
+		fclose(fp);
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d1 5
+d9 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d15 1
+d17 2
+a18 1
+	fprintf(stderr, "Default output format is slif\n");
+d32 1
+d35 1
+a35 1
+		argc--; argv++;
+d37 9
+a45 1
+	if(argc != 3) u_crash("Not enough args");
+d65 1
+a65 1
+	for(apos = 1; apos < argc; apos++) {
+d76 4
+a79 2
+	fprintf(ofp, "#\n# Written by e2fmt %s",
+		u_timestring(u_currenttime()));
+d82 2
+a83 1
+	else writeslif(ofp, vp);
+@

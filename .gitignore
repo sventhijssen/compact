@@ -1,1 +1,54 @@
-*__pycache__*
+# Default ignored files
+/workspace.xml
+
+.idea/
+
+__pycache__/
+
+*.aux
+*.log
+*.pdf
+*.tex
+
+*.json
+
+*.csv
+
+# Image files
+*.dot
+*.ps
+*.svg
+*.txt
+
+# ILP files
+*.mps
+
+# SPICE files
+*.cir
+
+# Visual Studio Code
+*.vscode
+
+# Benchmarks directory
+*_out.v
+*.lp
+
+# Virtual environment
+venv/
+
+# Locked files
+.~lock.*
+
+# Simulation files
+*.sim
+
+# Temporary files in ABC directory
+/abc/*.pla
+/abc/*.v
+/abc/*.blif
+
+# MacOS
+.DS_Store
+
+# Requirements
+!requirements.txt

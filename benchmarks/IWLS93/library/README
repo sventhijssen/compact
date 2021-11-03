@@ -1,0 +1,32 @@
+_____________________________________________________________________________
+
+			LGSynth93/lib/README
+_____________________________________________________________________________
+
+The LGSynth93/lib directory contains the target library definition
+data. There are three files that can be used to get information about
+target cells.
+
+
+iwls93.e
+	This is an edif format netlist that contains one cell for
+	each of the target technology cells.  Each such cells contains
+	a valid logic model defined in terms of generic logic gates.
+	Each view is annotated with an area property, each input
+	pin with a cap property and each output with a maxcap property.
+
+	This file currently lacks timing data.
+
+
+iwls93.models
+	This is a complete model file containing an area property, pin
+	properties (cap and maxcap), a logic model, and timing data.
+	This format has the advantage over the previous distribution formats
+	in that it can represent multi-output primitives and sequential
+	elements.
+
+
+iwls93.mis2lib
+	This file is a misII library for the cells that can be represented
+	in the misII format.  It is provided mainly for compatability.
+_____________________________________________________________________________

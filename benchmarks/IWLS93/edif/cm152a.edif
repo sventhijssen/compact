@@ -1,0 +1,279 @@
+(edif netlist
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 1993 2 0 16 45 4)
+      (author "David Rickel")
+      (program "autologic")
+    )
+  )
+  (external PRIMLIB
+    (edifLevel 0)
+    (technology
+      (numberDefinition
+      )
+      (simulationInfo
+        (logicValue H (booleanMap (true)))
+        (logicValue L (booleanMap (false)))
+      )
+    )
+    (cell OR8
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+          (port in4 (direction input))
+          (port in5 (direction input))
+          (port in6 (direction input))
+          (port in7 (direction input))
+        )
+      )
+    )
+    (cell AND4
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+        )
+      )
+    )
+    (cell INV
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in (direction input))
+        )
+      )
+    )
+  )
+  (library USER_LIB
+    (edifLevel 0)
+    (technology
+      (numberDefinition
+      )
+      (simulationInfo
+        (logicValue H (booleanMap (true)))
+        (logicValue L (booleanMap (false)))
+      )
+    )
+    (cell TOP
+      (cellType GENERIC)
+      (view NETLIST
+        (viewType NETLIST)
+        (interface
+          (port Pl (direction output))
+          (port Pk (direction input))
+          (port Pj (direction input))
+          (port Pi (direction input))
+          (port Ph (direction input))
+          (port Pg (direction input))
+          (port Pf (direction input))
+          (port Pe (direction input))
+          (port Pd (direction input))
+          (port Pc (direction input))
+          (port Pb (direction input))
+          (port Pa (direction input))
+        )
+        (contents
+          (instance G_G0
+            (viewRef INTERFACE (cellRef INV (libraryRef PRIMLIB))))
+          (instance G_G1
+            (viewRef INTERFACE (cellRef INV (libraryRef PRIMLIB))))
+          (instance G_G2
+            (viewRef INTERFACE (cellRef INV (libraryRef PRIMLIB))))
+          (instance G_G3
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G4
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G5
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G6
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G7
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G8
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G9
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G10
+            (viewRef INTERFACE (cellRef AND4 (libraryRef PRIMLIB))))
+          (instance G_G11
+            (viewRef INTERFACE (cellRef OR8 (libraryRef PRIMLIB))))
+          (net N_N0
+            (joined
+              (portRef in0 (instanceRef G_G10))
+              (portRef in0 (instanceRef G_G9))
+              (portRef in0 (instanceRef G_G8))
+              (portRef in0 (instanceRef G_G7))
+              (portRef out (instanceRef G_G0))
+            )
+          )
+          (net N_N1
+            (joined
+              (portRef in1 (instanceRef G_G10))
+              (portRef in1 (instanceRef G_G9))
+              (portRef in1 (instanceRef G_G6))
+              (portRef in1 (instanceRef G_G5))
+              (portRef out (instanceRef G_G1))
+            )
+          )
+          (net N_N2
+            (joined
+              (portRef in3 (instanceRef G_G9))
+              (portRef in2 (instanceRef G_G8))
+              (portRef in2 (instanceRef G_G6))
+              (portRef in2 (instanceRef G_G4))
+              (portRef out (instanceRef G_G2))
+            )
+          )
+          (net N_N3
+            (joined
+              (portRef in7 (instanceRef G_G11))
+              (portRef out (instanceRef G_G3))
+            )
+          )
+          (net N_N4
+            (joined
+              (portRef in6 (instanceRef G_G11))
+              (portRef out (instanceRef G_G4))
+            )
+          )
+          (net N_N5
+            (joined
+              (portRef in5 (instanceRef G_G11))
+              (portRef out (instanceRef G_G5))
+            )
+          )
+          (net N_N6
+            (joined
+              (portRef in4 (instanceRef G_G11))
+              (portRef out (instanceRef G_G6))
+            )
+          )
+          (net N_N7
+            (joined
+              (portRef in3 (instanceRef G_G11))
+              (portRef out (instanceRef G_G7))
+            )
+          )
+          (net N_N8
+            (joined
+              (portRef in2 (instanceRef G_G11))
+              (portRef out (instanceRef G_G8))
+            )
+          )
+          (net N_N9
+            (joined
+              (portRef in1 (instanceRef G_G11))
+              (portRef out (instanceRef G_G9))
+            )
+          )
+          (net N_N10
+            (joined
+              (portRef in0 (instanceRef G_G11))
+              (portRef out (instanceRef G_G10))
+            )
+          )
+          (net Nl
+            (joined
+              (portRef out (instanceRef G_G11))
+              (portRef Pl)
+            )
+          )
+          (net Nk
+            (joined
+              (portRef in (instanceRef G_G0))
+              (portRef in0 (instanceRef G_G3))
+              (portRef in0 (instanceRef G_G4))
+              (portRef in0 (instanceRef G_G5))
+              (portRef in0 (instanceRef G_G6))
+              (portRef Pk)
+            )
+          )
+          (net Nj
+            (joined
+              (portRef in (instanceRef G_G1))
+              (portRef in1 (instanceRef G_G3))
+              (portRef in1 (instanceRef G_G4))
+              (portRef in1 (instanceRef G_G7))
+              (portRef in1 (instanceRef G_G8))
+              (portRef Pj)
+            )
+          )
+          (net Ni
+            (joined
+              (portRef in (instanceRef G_G2))
+              (portRef in2 (instanceRef G_G3))
+              (portRef in2 (instanceRef G_G5))
+              (portRef in2 (instanceRef G_G7))
+              (portRef in3 (instanceRef G_G10))
+              (portRef Pi)
+            )
+          )
+          (net Nh
+            (joined
+              (portRef in3 (instanceRef G_G3))
+              (portRef Ph)
+            )
+          )
+          (net Ng
+            (joined
+              (portRef in3 (instanceRef G_G4))
+              (portRef Pg)
+            )
+          )
+          (net Nf
+            (joined
+              (portRef in3 (instanceRef G_G5))
+              (portRef Pf)
+            )
+          )
+          (net Ne
+            (joined
+              (portRef in3 (instanceRef G_G6))
+              (portRef Pe)
+            )
+          )
+          (net Nd
+            (joined
+              (portRef in3 (instanceRef G_G7))
+              (portRef Pd)
+            )
+          )
+          (net Nc
+            (joined
+              (portRef in3 (instanceRef G_G8))
+              (portRef Pc)
+            )
+          )
+          (net Nb
+            (joined
+              (portRef in2 (instanceRef G_G10))
+              (portRef Pb)
+            )
+          )
+          (net Na
+            (joined
+              (portRef in2 (instanceRef G_G9))
+              (portRef Pa)
+            )
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,51 @@
+ep_addc	token.c	/^static ep_addc(ch)$/
+ep_addkey	parse.c	/^ep_keyword *ep_addkey(name, args, f)$/
+ep_clearnametab	parse.c	/^void ep_clearnametab()$/
+ep_findkey	parse.c	/^ep_keyword *ep_findkey(name)$/
+ep_getarg	parse.c	/^int ep_getarg(keystr)$/
+ep_getc	token.c	/^static ep_getc(fp)$/
+ep_getname	parse.c	/^ep_name *ep_getname(str)$/
+ep_getnamearg	parse.c	/^int ep_getnamearg(keystr)$/
+ep_getoptarg	parse.c	/^int ep_getoptarg(keystr)$/
+ep_getproplist	builtin.c	/^property *ep_getproplist(keystr)$/
+ep_gettoken	token.c	/^ep_gettoken()$/
+ep_ignorekey	parse.c	/^ep_keyword *ep_ignorekey(name)$/
+ep_init	parse.c	/^ep_init()$/
+ep_insertkey	parse.c	/^ep_keyword *ep_insertkey(name)$/
+ep_parse	parse.c	/^ep_parse()$/
+ep_perr	parse.c	/^void ep_perr(va_alist)$/
+ep_perr_ignore	parse.c	/^int ep_perr_ignore(va_alist)$/
+ep_popctx	parse.c	/^void ep_popctx()$/
+ep_printtoken	token.c	/^ep_printtoken(fp)$/
+ep_pushctx	parse.c	/^void ep_pushctx(pre)$/
+ep_setctx	parse.c	/^void ep_setctx(pre)$/
+ep_sizesbuf	token.c	/^ep_sizesbuf(len)$/
+ep_startparse	parse.c	/^void ep_startparse(fp)$/
+ep_ungetc	token.c	/^static ep_ungetc(ch,fp)$/
+epk_cell	builtin.c	/^int epk_cell(cellname)$/
+epk_cellref	builtin.c	/^int epk_cellref(cellname, libref)$/
+epk_design	builtin.c	/^int epk_design(designname, cellref)$/
+epk_direction	builtin.c	/^int epk_direction(dir)$/
+epk_e	builtin.c	/^int epk_e(i1, i2)$/
+epk_eat	builtin.c	/^int epk_eat(keystr)$/
+epk_ediflevel	builtin.c	/^int epk_ediflevel(level)$/
+epk_edifversion	builtin.c	/^int epk_edifversion(a,b,c)$/
+epk_ignore	builtin.c	/^int epk_ignore()$/
+epk_init	builtin.c	/^epk_init()$/
+epk_instance	builtin.c	/^int epk_instance(name, vref)$/
+epk_instanceref	builtin.c	/^int epk_instanceref(iname)$/
+epk_integer	builtin.c	/^int epk_integer(i)$/
+epk_joined	builtin.c	/^int epk_joined()$/
+epk_joined_portref	builtin.c	/^int epk_joined_portref(pname)$/
+epk_library	builtin.c	/^int epk_library(keystr, libname)$/
+epk_libraryref	builtin.c	/^int epk_libraryref(libname)$/
+epk_net	builtin.c	/^int epk_net(name)$/
+epk_number	builtin.c	/^int epk_number(dp)$/
+epk_port	builtin.c	/^int epk_port(name, dir)$/
+epk_property	builtin.c	/^int epk_property(n)$/
+epk_rename	builtin.c	/^int epk_rename(name, rename)$/
+epk_string	builtin.c	/^int epk_string(str)$/
+epk_timestamp	builtin.c	/^int epk_timestamp(year,month,day,hour,minute,secon/
+epk_view	builtin.c	/^epk_view(viewname)$/
+epk_viewref	builtin.c	/^int epk_viewref(viewname, cellref)$/
+hash	parse.c	/^static int hash(str, tsize)$/

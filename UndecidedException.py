@@ -1,0 +1,2 @@
+class UndecidedException(Exception):
+    pass

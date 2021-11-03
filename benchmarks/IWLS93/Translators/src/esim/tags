@@ -1,0 +1,64 @@
+Mmain	main.c	/^main(argc, argv)$/
+addevent	dosim.c	/^static void addevent(ptp, time, value)$/
+addinstance	../netlist/misc.c	/^instance *addinstance(vp, instof)$/
+addnet	../netlist/misc.c	/^net *addnet(vp)$/
+and	dosim.c	/^#define and(a, b) (3 & ((a) & (b)))$/
+buffer	dosim.c	/^#define buffer(a) ((a) & 3)$/
+computehash	../util/hash.c	/^static int computehash(ht, name)$/
+deleteinstance	../netlist/misc.c	/^void deleteinstance(ip)$/
+deletenet	../netlist/misc.c	/^void deletenet(np)$/
+dissolve	../netlist/flatten.c	/^void dissolve(tip)$/
+dosim	dosim.c	/^dosim(vp, tfp, trace, seed)$/
+dprintf	../netlist/edif_actions.c	/^void dprintf(va_alist)$/
+eatspace	dosim.c	/^int eatspace(tfp)$/
+ex_design	../netlist/edif_actions.c	/^int ex_design(designname, libname, cellname)$/
+ex_endcell	../netlist/edif_actions.c	/^int ex_endcell(plist)$/
+ex_endlibrary	../netlist/edif_actions.c	/^int ex_endlibrary(plist)$/
+ex_endnet	../netlist/edif_actions.c	/^int ex_endnet(plist)$/
+ex_endview	../netlist/edif_actions.c	/^int ex_endview(plist)$/
+ex_instance	../netlist/edif_actions.c	/^int ex_instance(name, libname, cellname, viewname,/
+ex_join	../netlist/edif_actions.c	/^int ex_join(pname, iname)$/
+ex_port	../netlist/edif_actions.c	/^int ex_port(name, dir, plist)$/
+ex_startcell	../netlist/edif_actions.c	/^int ex_startcell(cellname)$/
+ex_startlibrary	../netlist/edif_actions.c	/^int ex_startlibrary(libtype, libname)$/
+ex_startnet	../netlist/edif_actions.c	/^int ex_startnet(name)$/
+ex_startview	../netlist/edif_actions.c	/^int ex_startview(viewname)$/
+fatal	dosim.c	/^fatal(va_alist)$/
+findcell	../netlist/misc.c	/^cell *findcell(lp, name)$/
+findlibrary	../netlist/misc.c	/^library *findlibrary(name)$/
+findview	../netlist/misc.c	/^view *findview(cellp, name)$/
+fixnc	../netlist/misc.c	/^fixnc(vp)$/
+fixncinsthash	../netlist/misc.c	/^fixncinsthash(ht)$/
+flatten	../netlist/flatten.c	/^flatten(vp, testfunc)$/
+getname	dosim.c	/^instance *getname(tfp)$/
+hashdelete_f	../util/hash.c	/^int hashdelete_f(ht, nhe)$/
+hashfind	../util/hash.c	/^hashentry *hashfind(ht, name)$/
+hashinit	../util/hash.c	/^void hashinit(ht)$/
+hashinsert_f	../util/hash.c	/^int hashinsert_f(ht, nhe)$/
+hookup	../netlist/misc.c	/^void hookup(ptp, np)$/
+isprimitive	../netlist/misc.c	/^int isprimitive(vp)$/
+mergenets	../netlist/misc.c	/^void mergenets(tonp, fromnp)$/
+netlist_init	../netlist/init.c	/^netlist_init()$/
+not	dosim.c	/^#define not(a)    (3 >> ((a) & 3))$/
+or	dosim.c	/^#define or(a, b)  (3 & ((a) | (b)))$/
+printhead	dosim.c	/^static void printhead()$/
+printout	dosim.c	/^static void printout()$/
+readinput	dosim.c	/^void readinput(tfp)$/
+setprimtype	../netlist/misc.c	/^setprimtype(vp)$/
+sim_getc	dosim.c	/^int sim_getc(tfp)$/
+sim_reset	dosim.c	/^static sim_reset(vp, seed)$/
+simoutput	dosim.c	/^void simoutput(e)$/
+u_calloc	../util/alloc.c	/^void *u_calloc(nelem, elsize)$/
+u_crash	../util/crash.c	/^void u_crash(va_alist)$/
+u_currenttime	../util/time.c	/^long u_currenttime()$/
+u_findhome	../util/home.c	/^char *u_findhome(argv0)$/
+u_free	../util/alloc.c	/^void u_free(p)$/
+u_getwd	../util/home.c	/^char *u_getwd()$/
+u_malloc	../util/alloc.c	/^void *u_malloc(size)$/
+u_realloc	../util/alloc.c	/^void *u_realloc(p, size)$/
+u_strsave	../util/alloc.c	/^char *u_strsave(str)$/
+u_timestring	../util/time.c	/^char *u_timestring(time)$/
+ueof	dosim.c	/^static void ueof()$/
+unhook	../netlist/misc.c	/^void unhook(ptp)$/
+usage	main.c	/^static void usage()$/
+vname	dosim.c	/^char vname(v)$/

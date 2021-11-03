@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.html -->
+<HTML><HEAD><TITLE>High-Level Model of c5315</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1250">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR><LINK 
+href="High-Level Model of c5315_soubory/c5315.css" rel=STYLESHEET></HEAD>
+<BODY bgColor=#ffffff>
+<DIV>
+<H1 class=Title><A name=pgfId=1009569></A>High-Level Model of 
+c5315</H1><BR><B>Statistics: </B>178 inputs; 123 outputs; 2406 gates
+<P></P>
+<P class=Body><A name=pgfId=1009574></A><B>Function: </B>9-bit ALU</P>
+<P class=Body><A name=pgfId=1013855></A>This benchmark is an ALU that performs 
+arithmetic and logic operations simultaneously on two 9-bit input data words, 
+and also computes the parity of the results. Modules M6 and M7 each compute an 
+arithmetic or logic operation specified by the control input bus CF[7:0]. Module 
+M5 consists of multiplexers that route the results of M6 and M7 and four input 
+buses to its four outputs. Output buses OF1 and OF2 can also be set to <B>logic 
+0</B> by MuxSel[8]. Modules M3 and M4 compute the parity of the result of the 
+operation given by CP=CF[7:4]. Module M5 contains four multiplexers which direct 
+the parity results and an additional set of four inputs to its outputs. The 
+adders in M6 and M7 as well as the parity logic for the arithmetic operations in 
+M3 and M4 use a carry-select scheme with 4-bit (low-order) and 5-bit 
+(high-order) blocks. The circuit also includes logic for calculating various 
+zero and parity flags of the input buses.</P><BR><A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.html#pgfId=1008955"><B>Inputs/Outputs 
+vs. Netlist numbers</B></A> 
+<HR>
+<B>
+<P>Models:</P></B>
+<UL>
+  <LI>I. Original ISCAS gate-level netlist 
+  <UL>
+    <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.isc">in 
+    ISCAS-89 format</A> 
+    <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315gate.v">in 
+    Verilog</A> </LI></UL>
+  <LI>II. <A 
+  href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315high.v">Verilog 
+  hierarchical netlist</A> (functionally equivalent to I) 
+  <LI>III. <A 
+  href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/flat5315.v">Verilog flat 
+  netlist </A>(flat version of II; functionally equivalent to I, but with minor 
+  structural differences) </LI></UL>
+<HR>
+<BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-1.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-2.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-3.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-4.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-5.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-6.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><MAP name=c5315-7></MAP><IMG 
+src="High-Level Model of c5315_soubory/c5315-7.gif" useMap=#c5315-7> </DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-8.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-9.gif" useMap=#c5315-7> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c5315_soubory/c5315-10.gif" useMap=#c5315-7> 
+</DIV><BR><BR><A name=pgfId=1008955></A>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1008956></A>Input</P></TH>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1008958></A>Line number</P></TH></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008960></A>X0[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008962></A>293, 302, 308, 316, 324, 
+      <B>logic 1</B>, 341, 351, 361</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008964></A>X1[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008966></A>299, 307, 315, 323, 331, 338, 
+      348, 358, 366</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009239></A>MuxSelX</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009241></A>332</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008968></A>A[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008970></A><B>logic 1</B>, <B>logic 
+      1</B>, 479, 490, 503, 514, 523, 534, <B>logic 1</B></P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008984></A>Y0[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008986></A>206, 210, 218, 226, 234, 257, 
+      265, 273, 281</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008988></A>Y1[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008990></A>209, 217, 225, 233, 241, 264, 
+      272, 280, 288</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009243></A>MuxSelY</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009245></A>335</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008992></A>B[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008994></A>446, 457, 468, 422, 435, 389, 
+      400, 411, 374</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009031></A>CinFX, CinFY</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009033></A>54, 4</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013443></A>CinPX,CinPY</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013445></A>2174, 1497</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009019></A>WpX[1:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009039></A>120, 94</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009015></A>WpY[1:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009041></A>118, 97</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013470></A>QP1,QP2,QP3,QP4</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013472></A>176, 179, 14, 64</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009055></A>Q1[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009043></A>191, 194, 197, 203, 200, 149, 
+      155, 188, 182</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009057></A>Q2[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009045></A>161, 164, 167, 173, 170, 146, 
+      152, 158, 185</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009059></A>Q3[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009005></A>109, 46, 100, 91, 43, 76, 73, 
+      67, 11</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009061></A>Q4[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1008998></A>106, 49, 103, 40, 37, 20, 17, 
+      70, 61</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009099></A>WFX[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009101></A>123, 121, 116, 112, 52, 130, 
+      119, 129, 131</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009095></A>WFY[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009097></A>115, 114, 53, 113, 122, 128, 
+      127, 126, 117</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009091></A>MuxSel[10:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009093></A>4091, 4092, 137, 4090, 4089, 
+      4087, 4088, 1694, 1691, 1690, 1689</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013462></A>CF[7:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013464></A>248, 251, 242, 254, 3552, 
+      3550, 3546, 3548</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013458></A>CP[3:0]=CF[7:4]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013460></A>248, 251, 242, 254</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013439></A>ParYin= MuxSelY ? ParYin0 : 
+      ParYin1</P>
+      <P class=CellBody><A name=pgfId=1013835></A>(ParYin0, ParYin1)</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013441></A>&nbsp;</P>
+      <P class=CellBody><A name=pgfId=1013838></A>289, 292</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013435></A>ParXin= MuxSelX ? ParXin0 : 
+      ParXin1</P>
+      <P class=CellBody><A name=pgfId=1013839></A>(ParXin0, ParXin1)</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013437></A>&nbsp;</P>
+      <P class=CellBody><A name=pgfId=1013842></A>369, 372</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013476></A>ContParChk[5:0]<EM 
+      class=no-overline> </EM></P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013478></A>562, 245, 552, 556, 559, 
+      386</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013480></A>MiscMuxIn[17:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013482></A>123 (=WFX[8]), 132, 23, 80, 
+      25, 81, 79, 82, 24, 26, 86, 83, 88, 88, 87, 83, 34, 34</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013495></A>MiscContIn[7:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013497></A>4115, 135, 3717, 3724, 141, 
+      2358, 31, 27</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013501></A>MiscIn[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013503></A>545, 549, 3173, 136, 1, 373, 
+      145, 2824, 140</P></TD></TR></TBODY></TABLE>
+<P class=Body><A name=pgfId=1008948></A>&nbsp;</P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1009282></A>Output</P></TH>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1009284></A>Line number</P></TH></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009434></A>OP1,OP2,OP3,OP4</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009436></A>658, 690, 767, 807</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009438></A>OF1[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009440></A>654, 642, 651, 648, 645, 670, 
+      667, 664, 661</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009442></A>OF2[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009444></A>688, 676, 685, 682, 679, 702, 
+      699, 696, 693</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009446></A>OF3[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009448></A>727, 747, 732, 737, 742, 752, 
+      757, 762, 722</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009450></A>OF4[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009452></A>712, 787, 772, 777, 782, 792, 
+      797, 802, 859</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009454></A>NXF[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009456></A>824, 826, 828, 830, 832, 834, 
+      836, 838, 822</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009458></A>NYF[8:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009460></A>863, 865, 867, 869, 871, 873, 
+      875, 877, 861</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009462></A>CoX,CoY</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009464></A>(629, 618)<A class=footnote 
+      href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.html#pgfId=1013809"> 
+      *</A> , (591, 621)<A class=footnote 
+      href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.html#pgfId=1013809"> 
+      *</A> </P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009466></A>PoX,PoY</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009468></A>843, 882</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009470></A>ParityChk[4:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009472></A>998, 1002, 1000, 1004, 
+    854</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009474></A>ZeroFlagOut[3:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1009476></A>585, 575, 598, 610</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013536></A>MiscMuxOut[10:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013538></A>623, 813, 818, 707, 715, 639, 
+      673, 636, 820, 717, 704</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013555></A>MiscOut[25:0]</P></TD>
+    <TD>
+      <P class=CellBody><A name=pgfId=1013602></A>593, 594, 602, 809, 611, 599, 
+      612, 600, 850, 848, 849, 851, 887, 298, 926, 892, 973, 993, 144, 601, 847, 
+      815, 634, 810, 845, 656</P></TD></TR></TBODY></TABLE>
+<P class=TableFootnote><SPAN class=footnoteNumber>*.</SPAN> <A 
+name=pgfId=1013809></A>(a,b): a,b are identical outputs.</P><BR>
+<P><A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c5315/c5315.html#pgfId=1009569">Go 
+to top of this file</A></P>
+<P><A href="http://www.eecs.umich.edu/~jhayes/iscas/benchmark.html">Go back to 
+the Benchmark List</A></P></DIV>
+<DIV></DIV></BODY></HTML>

@@ -1,0 +1,150 @@
+head     1.4;
+access   ;
+symbols  ;
+locks    ; strict;
+comment  @ * @;
+
+
+1.4
+date     93.02.22.12.01.29;  author kenm;  state Exp;
+branches ;
+next     1.3;
+
+1.3
+date     93.02.19.17.14.32;  author kenm;  state Exp;
+branches ;
+next     1.2;
+
+1.2
+date     93.02.01.15.29.24;  author kenm;  state Exp;
+branches ;
+next     1.1;
+
+1.1
+date     93.01.27.11.03.26;  author kenm;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.4
+log
+@added copyright
+@
+text
+@#ifndef TOKEN_H
+#define TOKEN_H
+
+#if !(defined lint) && (defined RCSHEADERS)
+static char token_rcsid[] = "$Header: util.h,v 1.2 93/02/22 11:54:14 kenm Exp $";
+static char token_copyright[] = "Copyright (C) 1993 Mentor Graphics Corporation";
+#endif
+
+
+#ifndef DECL
+#define DECL extern
+#endif
+#include "eprop.h"
+
+/* file to parse from */
+DECL FILE *e_fp;
+
+/* Current token info */
+DECL int ep_tkind;	/* token kind */
+DECL char *ep_tbuf;  DECL int ep_tlen; /* string buffer and length */
+DECL property *ep_property;
+#if 0
+DECL char *ep_tname; DECL int ep_tnamelen; /* result of rename */
+#endif
+DECL long ep_tint;	/* integer token value */
+DECL double ep_tdouble; /* double token value */
+DECL char *ep_tcharp;   /* generic pointer value */
+DECL int ep_tokenpushed; /* indicates that a token has been pushed back */
+
+DECL int ep_line;	/* line number in file */
+DECL int ep_ecnt;	/* number of errors in file */
+
+typedef struct _ep_name {
+	struct _ep_name *hashnext;
+	char flags;
+#define N_LIBNAME 1
+#define N_CELLNAME 2
+#define N_VIEWNAME 4
+
+#define NAMESTRSIZE 3
+	char str[NAMESTRSIZE];
+} ep_name;
+
+DECL struct _ep_name *ep_tname;
+
+extern ep_name *ep_getname();
+
+/* token type */
+#define T_EOF	0
+#define T_LPAR	1
+#define T_RPAR	2
+#define T_QSTR	4
+#define T_INT	5
+#define T_ALIST	6
+#define T_CHARP 7
+#define T_DOUBLE 8
+#define T_NULL	9
+#define T_RENAME 10
+#define T_VREF 11
+#define T_CREF 12
+#define T_LREF 13
+#define T_END 14
+#define T_NAME 15
+#define T_DIRECTION 16
+#define T_PROPERTY 17
+#define T_ERROR	18
+
+#endif
+@
+
+
+1.3
+log
+@changed name of propery include file
+@
+text
+@d1 6
+a6 2
+#if (defined RCSHEADER) && !(defined lint)
+static char rcs_token_h[] = "$Header: token.h,v 1.2 93/02/01 15:29:24 kenm Exp $";
+d9 1
+d67 2
+@
+
+
+1.2
+log
+@added properties
+@
+text
+@d2 1
+a2 1
+static char rcs_token_h[] = "$Header: token.h,v 1.1 93/01/27 11:03:26 kenm Exp $";
+d8 1
+a8 1
+#include "property.h"
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d2 1
+a2 1
+static char rcs_token_h[] = "$Header: token.h,v 1.1 92/12/01 17:14:35 kenm Exp $";
+d8 1
+d16 1
+d60 2
+a61 1
+#define T_ERROR	17
+@

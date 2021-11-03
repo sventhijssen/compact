@@ -1,0 +1,1738 @@
+library(pdt) {
+
+/* revision 1.5 added latch cell KDC */
+/* revision 1.6 made fixes to function statements of XOR and XNOR */
+/* cells as per star 2883.  KDC   */
+/* revision 1.7 added FD1S, FD2S, FD4S, BTS5 for test andcell tristate */
+/* inference.  */
+/* revision 1.8 added proper timing arcs for D flops with async. timing */
+/* $Id: class.lib,v 1.10 1994/02/25 10:13:11 sashi v3-1-a $ */
+/* $Source: /remote/src/dware/fran/dev/libraries/syn/RCS/class.lib,v $ */
+
+
+	date : "February 7, 1992";
+	revision : 1.8;
+
+    default_inout_pin_cap        :  1.0;
+    default_inout_pin_fall_res   :  0.0;
+    default_inout_pin_rise_res   :  0.0;
+    default_input_pin_cap        :  1.0;
+    default_intrinsic_fall       :  1.0;
+    default_intrinsic_rise       :  1.0;
+    default_output_pin_cap       :  0.0;
+    default_output_pin_fall_res  :  0.0;
+    default_output_pin_rise_res  :  0.0;
+    default_slope_fall           :  0.0;
+    default_slope_rise           :  0.0;
+    default_fanout_load          :  1.0;
+
+    default_wire_load_capacitance : 1.0;
+    default_wire_load_resistance : 1.0;
+    default_wire_load_area       : 1.0;
+
+    k_process_drive_fall         :  1.0;
+    k_process_drive_rise         :  1.0;
+    k_process_intrinsic_fall     :  1.0;
+    k_process_intrinsic_rise     :  1.0;
+    k_process_pin_cap            :  0.0;
+    k_process_slope_fall         :  1.0;
+    k_process_slope_rise         :  1.0;
+    k_process_wire_cap           :  0.0;
+    k_process_wire_res           :  1.0;
+    k_temp_drive_fall            :  0.0037;
+    k_temp_drive_rise            :  0.0037;
+    k_temp_intrinsic_fall        :  0.0037;
+    k_temp_intrinsic_rise        :  0.0037;
+    k_temp_pin_cap               :  0.0;
+    k_temp_slope_fall            :  0.0;
+    k_temp_slope_rise            :  0.0;
+    k_temp_wire_cap              :  0.0;
+    k_temp_wire_res              :  0.0;
+    k_volt_drive_fall            : -0.26;
+    k_volt_drive_rise            : -0.26;
+    k_volt_intrinsic_fall        : -0.26;
+    k_volt_intrinsic_rise        : -0.26;
+
+    k_volt_pin_cap               :  0.0;
+    k_volt_slope_fall            :  0.0;
+    k_volt_slope_rise            :  0.0;
+    k_volt_wire_cap              :  0.0;
+    k_volt_wire_res              :  0.0;
+
+    time_unit : "1ns";
+    voltage_unit : "1V";
+    current_unit : "1uA";
+    pulling_resistance_unit : "1kohm";
+    capacitive_load_unit (0.1,ff);
+
+    input_voltage(CMOS_SCHMITT) {
+	vil : 1.0;
+	vih : 4.0;
+	vimin : -0.3;
+        vimax : VDD + 0.3;
+    }
+
+    output_voltage(TTL) {
+	vol : 0.4;
+	voh : 2.4;
+	vomin : -0.3;
+        vomax : VDD + 0.3;
+    }
+
+    nom_process                  :  1.0;
+    nom_temperature 	         : 25.0;
+    nom_voltage                  :  5.0;
+
+    in_place_swap_mode : match_footprint;
+
+
+
+    operating_conditions(WCCOM) {
+	process : 1.5 ;
+        temperature : 70 ;
+	voltage : 4.75 ;
+	tree_type : "worst_case_tree" ;
+    }
+    operating_conditions(WCIND) {
+        process : 1.5 ;
+        temperature : 85 ;
+        voltage : 4.75 ;
+        tree_type : "worst_case_tree" ;
+    }
+    operating_conditions(WCMIL) {
+        process : 1.5 ;
+        temperature : 125 ;
+        voltage : 4.5 ;
+        tree_type : "worst_case_tree" ;
+    }
+
+    wire_load("05x05") {
+        resistance : 0 ;
+        capacitance : 1 ;
+        area : 0 ;
+        slope : 0.186 ;
+        fanout_length(1,0.39) ;
+    }
+    wire_load("10x10") {
+        resistance : 0 ;
+        capacitance : 1 ;
+        area : 0 ;
+        slope : 0.311 ;
+        fanout_length(1,0.53) ;
+    }
+    wire_load("20x20") {
+        resistance : 0 ;
+        capacitance : 1 ;
+        area : 0 ;
+        slope : 0.547 ;
+        fanout_length(1,0.86) ;
+    }
+
+    wire_load_selection() {
+	wire_load_from_area(0,1000,05x05);
+	wire_load_from_area(1001,2000,10x10);
+	wire_load_from_area(2001,3000,20x20);
+	}
+
+
+/* 2 input AND */
+
+cell(And_gate) {
+  area : 2;
+  cell_footprint : "an2";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "I1 I2";
+    timing() {
+      intrinsic_rise : 0.48;
+      intrinsic_fall : 0.77;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0523;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.48;
+      intrinsic_fall : 0.77;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0523;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* 2 input NAND */
+
+cell(Nand_gate) {
+  area : 2;
+  cell_footprint : "an2";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2)'";
+    timing() {
+      intrinsic_rise : 0.48;
+      intrinsic_fall : 0.77;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0523;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.48;
+      intrinsic_fall : 0.77;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0523;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* 2 input OR */
+
+cell(Or_gate) {
+  area : 2;
+  cell_footprint : "or2";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "I1+I2";
+    timing() {
+      intrinsic_rise : 0.38;
+      intrinsic_fall : 0.85;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.38;
+      intrinsic_fall : 0.85;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* NOT */
+
+cell(Inv_gate) {
+  area : 1;
+  cell_footprint : "iv";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "I1'";
+    timing() {
+      intrinsic_rise : 0.38;
+      intrinsic_fall : 0.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+  }
+}
+
+/* BUF */
+
+cell(Buf_gate) {
+  area : 3;
+  pin(I1) {
+    direction : input;
+    capacitance : 6;
+  }
+  pin(O) {
+    direction : output;
+    function : "I1";
+    timing() {
+      intrinsic_rise : 0.33;
+      intrinsic_fall : 0.16;
+      rise_resistance : 0.0214;
+      fall_resistance : 0.0146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+  }
+}
+
+/* 2 input NOR */
+
+cell(Nor_gate) {
+  area : 1;
+  cell_footprint : "nr2";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2)'";
+    timing() {
+      intrinsic_rise : 0.55;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.2589;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.55;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.2589;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* 2 input XOR */
+
+cell(Xor_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1^I2)";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* 2 input XNOR */
+
+cell(Xnor_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1^I2)'";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+  }
+}
+
+/* 3 input XOR */
+
+cell(Xor3_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1^I2)^I3";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 3 input XNOR */
+
+cell(Xnor3_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "((I1^I2)^I3)'";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 4 input XOR */
+
+cell(Xor4_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "((I1^I2)^I3)^I4";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 4 input XNOR */
+
+cell(Xnor4_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "(((I1^I2)^I3)^I4)'";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 5 input XOR */
+
+cell(Xor5_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "(((I1^I2)^I3)^I4)^I5";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* 5 input XNOR */
+
+cell(Xnor5_gate) {
+  area : 3;
+  cell_footprint : "EN";
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(O) {
+    direction : output;
+    function : "((((I1^I2)^I3)^I4)^I5)'";
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 0.79;
+      intrinsic_fall : 1.06;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0653;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* 3 input NAND */
+
+cell(Nand3_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3)'";
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 3 input AND */
+
+cell(And3_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3)";
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.37;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1146;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 3 input OR */
+
+cell(Or3_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3)";
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 3 input NOR */
+
+cell(Nor3_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3)'";
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.81;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.3864;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+  }
+}
+
+/* 4 input NAND */
+
+cell(Nand4_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3 I4)'";
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 4 input AND */
+
+cell(And4_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3 I4)";
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 0.65;
+      intrinsic_fall : 0.45;
+      rise_resistance : 0.1411;
+      fall_resistance : 0.1411;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 4 input OR */
+
+cell(Or4_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3+I4)";
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 4 input NOR */
+
+cell(Nor4_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3+I4)'";
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+  }
+}
+
+/* 5 input OR */
+
+cell(Or5_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3+I4+I5)";
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* 5 input NOR */
+
+cell(Nor5_gate) {
+  area : 2;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1+I2+I3+I4+I5)'";
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 1.07;
+      intrinsic_fall : 0.25;
+      rise_resistance : 0.5146;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* 5 input NAND */
+
+cell(Nand5_gate) {
+  area : 4;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3 I4 I5)'";
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* 5 input AND */
+
+cell(And5_gate) {
+  area : 4;
+  pin(I1) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I2) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I3) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I4) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(I5) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(O) {
+    direction : output;
+    function : "(I1 I2 I3 I4 I5)";
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I1";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I2";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I3";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I4";
+    }
+    timing() {
+      intrinsic_rise : 1.08;
+      intrinsic_fall : 1.15;
+      rise_resistance : 0.1443;
+      fall_resistance : 0.0589;
+      slope_rise : 0.0;
+      slope_fall : 0.0;
+      related_pin : "I5";
+    }
+  }
+}
+
+/* FF */
+
+cell(Flip_Flop_D) {
+  area : 7;
+  pin(CK) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(D) {
+    direction : input;
+    capacitance : 1;
+    timing() {
+      timing_type : setup_rising;
+      intrinsic_rise : 0.8;
+      intrinsic_fall : 0.8;
+      related_pin : "CK";
+    }
+    timing() {
+      timing_type : hold_rising;
+      intrinsic_rise : 0.4;
+      intrinsic_fall : 0.4;
+      related_pin : "CK";
+    }
+  }
+/*  state("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CP";
+  }*/
+  ff("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CK";
+  }
+  pin(Q) {
+    direction : output;
+    function : "IQ";
+    timing() {
+      timing_type : rising_edge;
+      intrinsic_rise : 1.09;
+      intrinsic_fall : 1.37;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0523;
+      related_pin : "CK";
+    }
+  }
+}
+
+/* FF reset */
+
+cell(Flip_Flop_D_reset) {
+  area : 7;
+  pin(RESET) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(CK) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(D) {
+    direction : input;
+    capacitance : 1;
+    timing() {
+      timing_type : setup_rising;
+      intrinsic_rise : 0.8;
+      intrinsic_fall : 0.8;
+      related_pin : "CK";
+    }
+    timing() {
+      timing_type : hold_rising;
+      intrinsic_rise : 0.4;
+      intrinsic_fall : 0.4;
+      related_pin : "CK";
+    }
+  }
+/*  state("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CP";
+  }*/
+  ff("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CK";
+    clear : "RESET";
+  }
+  pin(Q) {
+    direction : output;
+    function : "IQ";
+    timing() {
+      timing_type : rising_edge;
+      intrinsic_rise : 1.09;
+      intrinsic_fall : 1.37;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0523;
+      related_pin : "CK";
+    }
+  }
+}
+
+/* FF preset */
+
+cell(Flip_Flop_D_preset) {
+  area : 7;
+  pin(PRESET) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(CK) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(D) {
+    direction : input;
+    capacitance : 1;
+    timing() {
+      timing_type : setup_rising;
+      intrinsic_rise : 0.8;
+      intrinsic_fall : 0.8;
+      related_pin : "CK";
+    }
+    timing() {
+      timing_type : hold_rising;
+      intrinsic_rise : 0.4;
+      intrinsic_fall : 0.4;
+      related_pin : "CK";
+    }
+  }
+/*  state("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CP";
+  }*/
+  ff("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CK";
+    preset : "PRESET";
+  }
+  pin(Q) {
+    direction : output;
+    function : "IQ";
+    timing() {
+      timing_type : rising_edge;
+      intrinsic_rise : 1.09;
+      intrinsic_fall : 1.37;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0523;
+      related_pin : "CK";
+    }
+  }
+}
+
+/* FF reset, preset */
+
+cell(Flip_Flop_D_reset_preset) {
+  area : 7;
+  pin(PRESET) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(RESET) {
+    direction : input;
+    capacitance : 2;
+  }
+  pin(CK) {
+    direction : input;
+    capacitance : 1;
+  }
+  pin(D) {
+    direction : input;
+    capacitance : 1;
+    timing() {
+      timing_type : setup_rising;
+      intrinsic_rise : 0.8;
+      intrinsic_fall : 0.8;
+      related_pin : "CK";
+    }
+    timing() {
+      timing_type : hold_rising;
+      intrinsic_rise : 0.4;
+      intrinsic_fall : 0.4;
+      related_pin : "CK";
+    }
+  }
+/*  state("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CP";
+  }*/
+  ff("IQ","IQN") {
+    next_state : "D";
+    clocked_on : "CK";
+    clear : "RESET";
+    preset : "PRESET";
+
+    clear_preset_var1 : L;	/* IQ = 0 */
+    clear_preset_var2 : H;	/* IQN = 1 */
+    
+  }
+  pin(Q) {
+    direction : output;
+    function : "IQ";
+    timing() {
+      timing_type : rising_edge;
+      intrinsic_rise : 1.09;
+      intrinsic_fall : 1.37;
+      rise_resistance : 0.1458;
+      fall_resistance : 0.0523;
+      related_pin : "CK";
+    }
+  }
+}
+
+}
+

@@ -1,0 +1,27 @@
+Circuit C17;
+ 
+Node
+  A1,A10,A11,A2,A3,A4,A5,A6
+  ,A7,A8,A9 : bit;
+ 
+Con (delay:10)
+  NA1,NA2,NA3,NA4,NA5,NA6 : Nand_2;
+ 
+Input
+  A1,A2,A3,A4,A5;
+ 
+Output
+  A10,A11;
+ 
+Strobe
+ STROBEALL :
+  A10,A11;
+ 
+begin
+  NA1(A1,A3;A6);
+  NA2(A3,A4;A7);
+  NA3(A2,A7;A8);
+  NA4(A7,A5;A9);
+  NA5(A6,A8;A10);
+  NA6(A8,A9;A11);
+end.

@@ -1,0 +1,40 @@
+#    nome       area    funzione              pol fanout delays
+GATE Inv_gate	1	O=!a;		PIN * INV 1 999 1.0 0.0 1.0 0.0
+GATE Buf_gate	1	O=a;		PIN * NONINV 1 999 1.0 0.0 1.0 0.0
+
+GATE And_gate	2	O=a*b;		PIN * NONINV 1 999 1.1 0.0 1.1 0.0
+GATE Nand_gate	2	O=!(a*b);	PIN * INV 1 999 1.1 0.0 1.1 0.0
+GATE Or_gate	2	O=a+b;		PIN * NONINV 1 999 1.1 0.0 1.1 0.0
+GATE Nor_gate	2	O=!(a+b);	PIN * INV 1 999 1.1 0.0 1.1 0.0
+
+GATE And3_gate	3	O=a*b*c;	PIN * NONINV 1 999 1.2 0.0 1.2 0.0
+GATE Nand3_gate	3	O=!(a*b*c);	PIN * INV 1 999 1.2 0.0 1.2 0.0
+GATE Or3_gate	3	O=a+b+c;	PIN * NONINV 1 999 1.2 0.0 1.2 0.0
+GATE Nor3_gate	3	O=!(a+b+c);	PIN * INV 1 999 1.2 0.0 1.2 0.0
+
+GATE And4_gate	4	O=a*b*c*d;	PIN * NONINV 1 999 1.3 0.0 1.3 0.0
+GATE Nand4_gate	4	O=!(a*b*c*d);	PIN * INV 1 999 1.3 0.0 1.3 0.0
+GATE Or4_gate	4	O=a+b+c+d;	PIN * NONINV 1 999 1.3 0.0 1.3 0.0
+GATE Nor4_gate	4	O=!(a+b+c+d);	PIN * INV 1 999 1.3 0.0 1.3 0.0
+
+GATE And5_gate	5	O=a*b*c*d*e;	PIN * NONINV 1 999 1.4 0.0 1.4 0.0
+GATE Nand5_gate	5	O=!(a*b*c*d*e);	PIN * INV 1 999 1.4 0.0 1.4 0.0
+GATE Or5_gate	5	O=a+b+c+d+e;	PIN * NONINV 1 999 1.4 0.0 1.4 0.0
+GATE Nor5_gate	5	O=!(a+b+c+d+e);	PIN * INV 1 999 1.4 0.0 1.4 0.0
+
+GATE Xor_gate	4	O=a*!b+!a*b;	PIN * UNKNOWN 2 999 1.1 0.0 1.1 0.0
+GATE Xor_gate	4	O=!(a*b+!a*!b);	PIN * UNKNOWN 2 999 1.1 0.0 1.1 0.0
+GATE Xnor_gate	4	O=a*b+!a*!b;	PIN * UNKNOWN 2 999 1.1 0.0 1.1 0.0
+GATE Xnor_gate	4	O=!(!a*b+a*!b);	PIN * UNKNOWN 2 999 1.1 0.0 1.1 0.0
+
+GATE zero	0	O=CONST0;
+GATE one	0	O=CONST1;
+
+# D-type latches and flip-flops are necessary for sequential
+# technology mapping.   
+# WARNING: area and delay parameters are arbitrary.
+LATCH Flip_Flop_D 10 Q = D;
+PIN D NONINV 1 999 1.0 0.0 1.0 0.0
+SEQ Q ANY RISING_EDGE
+CONTROL CLOCK 1 999 1.0 0.0 1.0 0.0
+CONSTRAINT D 0.0 0.0

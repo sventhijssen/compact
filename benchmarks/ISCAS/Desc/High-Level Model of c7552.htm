@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html -->
+<HTML><HEAD><TITLE>High-Level Model of c7552</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1250">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR><LINK 
+href="High-Level Model of c7552_soubory/c7552.css" rel=STYLESHEET></HEAD>
+<BODY bgColor=#ffffff>
+<DIV>
+<H1 class=Title><A name=pgfId=933994></A>High-Level Model of c7552</H1><BR>
+<P><B>Statistics: </B>207 inputs; 108 outputs; 3512 gates</P>
+<P><B>Function: </B>34-bit adder and magnitude comparator with input parity 
+checking</P>
+<P>This benchmark circuit contains a 34-bit adder (M5), a 34-bit magnitude 
+comparator (M8) using another 34-bit adder, and a parity checker (M9). Each of 
+the XA, YA, and YB buses is fed by a set of 2:1 multiplexers controlled by the 
+Sel input. Bits 31-22 of XA and YB can be set to logic 0 with the Mask input. 
+The two adders M5 and M8 are identical, and are of carry select type, as are 
+those of c5315. They consist of alternating 4- and 5-bit blocks, with the last 
+block being 2 bits. The comparator (M8) of this benchmark is similar to that of 
+c2670. It performs the comparison YB&gt;XB (if Sel=0) or YB&gt;!YA1 (if Sel=1) 
+by calculating YB+!XB (if Sel=0) or YB+!YA1 (if Sel=1) (Note: the input bus YA1 
+is assumed to be inverted). The comparator has an output (CoutY) for the whole 
+34-bit inputs as well as an output (CoutY_17) for the 17-bit portion of its 
+inputs. Module M7 calculates the parity for the following four parts of the 
+adder output SumX: SumX[8:0], SumX[17:9], SumX[26:18], SumX[33:27]. Module M9 
+appears to be a type of sanity checker that calculates the AND of the parities 
+of all its inputs.</P><BR><A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html#pgfId=1015521"><B>Inputs/Outputs 
+vs. Netlist numbers</B></A> 
+<HR>
+<B>
+<P>Models:</P></B>
+<UL>
+  <LI>I. Original ISCAS gate-level netlist 
+  <UL>
+    <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.isc">in 
+    ISCAS-89 format</A> 
+    <LI><A href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552gate.v">in 
+    Verilog</A> </LI></UL>
+  <LI>II. <A 
+  href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552high.v">Verilog 
+  hierarchical netlist</A> (functionally equivalent to I) 
+  <LI>III. <A 
+  href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/flat7552.v">Verilog flat 
+  netlist </A>(flat version of II; functionally equivalent to I, but with minor 
+  structural differences) </LI></UL>
+<HR>
+
+<DIV><MAP name=c7552-1></MAP><IMG 
+src="High-Level Model of c7552_soubory/c7552-1.gif" useMap=#c7552-1> 
+</DIV><BR><B>Detailed bus definitions:</B> 
+<P class=Body>- XA:</P>
+<UL>
+  <LI class=Bulleted>XA[21:0] = XA0[21:0] if Sel=0, &nbsp;&nbsp;XA1[21:0] if 
+  Sel=1 
+  <LI class=Bulleted>XA[31:22] = XA0[21:0].Mask if Sel=0, 
+  &nbsp;&nbsp;XA1[21:0].Mask if Sel=1 
+  <LI class=Bulleted>XA[32] = XA[33] = XYAext </LI></UL>
+<P class=Body>- NotXB: </P>
+<UL>
+  <LI class=Bulleted>NotXB[0] = ! XB[0] if Sel=1, &nbsp;&nbsp;<B>logic 0</B> if 
+  Sel=0 
+  <LI class=Bulleted>NotXB[31:1] = ! XB[31:1] 
+  <LI class=Bulleted>NotXB[33:32] = ! ( XB[33:32]. XYBext ) </LI></UL>
+<P class=Body>- YA:</P>
+<UL>
+  <LI class=Bulleted>YA[0] = <B>logic 1</B> if Sel=0, &nbsp;&nbsp;YA1[0] if 
+  Sel=1 
+  <LI class=Bulleted>YA[31:1] = NotXB[31:1] if Sel=0, &nbsp;&nbsp;YA1[31:1] if 
+  Sel=1 
+  <LI class=Bulleted>YA[32] = YA[33] = XYAext. </LI></UL>
+<P class=Body>- YB:</P>
+<UL>
+  <LI class=Bulleted>YB[21:0] = YB0[21:0] if Sel=0, &nbsp;&nbsp;XA1[21:0] if 
+  Sel=1 
+  <LI class=Bulleted>YB[31:22] = YB0[21:0].Mask if Sel=0, 
+  &nbsp;&nbsp;XA1[21:0].Mask if Sel=1 
+  <LI class=Bulleted>YB[33:32] = YB0[33:32] + ! XYBext </LI></UL>- XBbuf[33:0] = 
+XB[33:0]
+<P></P>- PCYA0buf[3:0] = { PCYA0[6], PCYA0[3], PCYA0[2], PCYA0[0] }
+<P></P>
+<HR>
+<BR>
+<DIV><IMG src="High-Level Model of c7552_soubory/c7552-2.gif" useMap=#c7552-1> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c7552_soubory/c7552-3.gif" useMap=#c7552-1> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c7552_soubory/c7552-4.gif" useMap=#c7552-1> 
+</DIV><BR>
+<DIV><IMG src="High-Level Model of c7552_soubory/c7552-5.gif" useMap=#c7552-1> 
+</DIV><BR><BR><BR><BR><A name=pgfId=1015521></A>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1015522></A>Input</P></TH>
+    <TH>
+      <P class=CellHeading><A name=pgfId=1015524></A>Netlist 
+      numbers</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015526></A>XA0[31:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015528></A>213, 214, 215, 216, 209, 153, 
+      154, 155, 156, 157, 158, 159, 160, 151, 219, 220, 221, 222, 223, 224, 225, 
+      226, 217, 231, 232, 233, 234, 235, 236, 237, 238, <B>logic 0</B></P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015531></A>XA1[31:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015533></A>10 *{<B>logic 1</B>}, 135, 
+      144, 138, 147, 66, 50, 32, 35, 47, 121, 94, 97, 118, 100, 124, 127, 130, 
+      103, 23, 26, 29, 41</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015536></A>XB[33:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015538></A>1496, 1492, 1486, 1480, 106, 
+      1469, 1462, 2256, 2253, 2247, 2239, 2236, 2230, 2224, 2218, 2211, 4437, 
+      4432, 4427, 4420, 4415, 4410, 4405, 4400, 4394, 3749, 3743, 3737, 3729, 
+      3723, 3717, 3711, 3705, 3701</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015541></A>YA1[31:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015543></A>88, 112, 87, 111, 113, 110, 
+      109, 86, 63, 64, 85, 84, 83, 65, 62, 61, 60, 79, 80, 81, 59, 78, 77, 56, 
+      55, 54, 53, 73, 75, 76, 74, 70</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015546></A>YB0[33:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015548></A>2204, 1455, 166, 167, 168, 
+      169, <B>logic 1</B>, 173, 174, 175, 176, 177, 178, 179, 180, 171, 189, 
+      190, 191, 192, 193, 194, 195, 196, 187, 200, 201, 202, 203, 204, 205, 206, 
+      207, <B>logic 0</B></P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015551></A>!Sel</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015553></A>18</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015555></A>CinX, CinY</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015557></A>4526, 89</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015559></A>Mask=!Mask1+!Mask2</P>
+      <P class=CellBodyL><A name=pgfId=1015560></A>Mask1, Mask2</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015562></A>&nbsp;</P>
+      <P class=CellBodyL><A name=pgfId=1015563></A>112, 9</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015565></A>XYAext, XYBext</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015567></A>38, 4528</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015569></A>PCXA0[6:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015571></A><B>logic 1</B>, 211, 212, 
+      161, 227, 239, 229</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015573></A>PCXA1[6:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015575></A>3*{<B>logic 1</B>}, 141, 115, 
+      44, 41</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015577></A>PCYA0[6:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015579></A>1459, 1496, 1492, 2208, 4398, 
+      3701, 3698</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015581></A>PCYA1[6:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015583></A>114, 2204, 1455, 82, 58, 70, 
+      69</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015585></A>PCYB0[6:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015587></A>170, 164, 165, 181, 197, 208, 
+      198</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015589></A>StrbIn[15:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015591></A>199, 188, 172, 162, 186, 185, 
+      182, 183, 230, 218, 152, 210, 240, 228, 184, 150</P></TD></TR>
+  <TR>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015593></A>MiscIn[7:0]</P></TD>
+    <TD>
+      <P class=CellBodyL><A name=pgfId=1015595></A>57, 5, 133, 134, 1197, 15, 
+      163, 1</P></TD></TR></TBODY></TABLE>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>Output</P></TD>
+    <TH>
+      <P>Netlist numbers</P></TH>
+    <P></P></TR>
+  <TR>
+    <P>
+    <TD>
+      <P>SumX[33:0]</P></TD>
+    <TD>
+      <P>469, 471, 327, 330, 333, 336, 324, 298, 301, 304, 307, 310, 313, 316, 
+      319, 295, 347, 350, 353, 356, 359, 362, 365, 368, 344, 376, 379, 382, 385, 
+      388, 391, 394, 397, 373</P></TD></P></TR>
+  <TR>
+    <TD>
+      <P>!SumPar[3:0]</P></TD>
+    <TD>
+      <P>338, 321, 370, 399</P></TD></TR>
+  <TR>
+    <TD>
+      <P>CoutX1, CoutX2</P></TD>
+    <TD>
+      <P>(270, 246)<A class=footnote 
+      href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html#pgfId=1015519"> 
+      *</A> , (273, 276)<A class=footnote 
+      href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html#pgfId=1015519"> 
+      *</A></P></TD></TR>
+  <TR>
+    <TD>
+      <P>CoutY1, CoutY2</P></TD>
+    <TD>
+      <P>(258, 264)<A class=footnote 
+      href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html#pgfId=1015519"> 
+      *</A> , 249</P></TD></TR>
+  <TR>
+    <TD>
+      <P>CoutY_17</P></TD>
+    <TD>
+      <P>252</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ParCheck[3:0]</P></TD>
+    <TD>
+      <P>416, 414, 412, 418</P></TD></TR>
+  <TR>
+    <TD>
+      <P>XBbuf[33:0]</P></TD>
+    <TD>
+      <P>440, 438, 442, 444, 446, 448, 436, 480, 482, 484, 486, 488, 490, 492, 
+      494, 478, 524, 526, 528, 530, 532, 534, 536, 538, 522, 544, 546, 548, 550, 
+      552, 554, 556, 558, 542</P></TD></TR>
+  <TR>
+    <TD>
+      <P>StrbOut</P></TD>
+    <TD>
+      <P>410, 408. 406, 404</P></TD></TR>
+  <TR>
+    <TD>
+      <P>PCYA0buf[3:0]</P></TD>
+    <TD>
+      <P>450, 496, 540, 560</P></TD></TR>
+  <TR>
+    <TD>
+      <P>MiscOut[5:0]</P></TD>
+    <TD>
+      <P>402, 289, 292, 279, 278, 2</P></TD></TR></TBODY></TABLE><BR>
+<DIV class=footnotes>
+<DIV class=footnote>
+<P class=TableFootnote><SPAN class=footnoteNumber>*</SPAN> <A 
+name=pgfId=1015519></A>(a,b): a,b are identical outputs.</P><BR>
+<P><A 
+href="http://www.eecs.umich.edu/~jhayes/iscas/c7552/c7552.html#pgfId=933994">Go 
+to top of this file</A></P>
+<P><A href="http://www.eecs.umich.edu/~jhayes/iscas/benchmark.html">Go back to 
+the Benchmark List</A></P></DIV></DIV></DIV></BODY></HTML>

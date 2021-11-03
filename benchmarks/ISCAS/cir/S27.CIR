@@ -1,0 +1,50 @@
+Circuit s27;
+
+Node
+   G0,G1,G2,G3,G5,G6,G7,G14
+   ,G17,G8,G15,G16,G9,G10,G11,G12
+   ,G13 : bit;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   NOT1,NOT2 : Inverter;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   DFF1,DFF2,DFF3 : Dflipflop;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   AN2a1 : And_2;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   NA2a1 : Nand_2;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   OR2a1,OR2a2 : Or_2;
+
+Con (delay: rd = 1000; fd = 1000; rdt = 10; fdt = 10)
+   NO2a1,NO2a2,NO2a3,NO2a4 : Nor_2;
+
+Input
+   G0,G1,G2,G3;
+
+Output
+   G17;
+
+Strobe
+ STROBEALL :
+   G17;
+
+begin
+   DFF1(G10;G5);
+   DFF2(G11;G6);
+   DFF3(G13;G7);
+   NOT1(G0;G14);
+   NOT2(G11;G17);
+   AN2a1(G14,G6;G8);
+   OR2a1(G12,G8;G15);
+   OR2a2(G3,G8;G16);
+   NA2a1(G16,G15;G9);
+   NO2a1(G14,G11;G10);
+   NO2a2(G5,G9;G11);
+   NO2a3(G1,G7;G12);
+   NO2a4(G2,G12;G13);
+end.

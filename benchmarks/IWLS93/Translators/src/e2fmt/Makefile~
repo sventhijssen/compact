@@ -1,0 +1,35 @@
+# $Header: Makefile,v 1.6 93/05/16 18:28:28 kenm Exp $
+# Copyright (C) 1993 Mentor Graphics Corporation
+
+SRCS = main.c wr_blif.c wr_edif.c wr_slif.c
+OBJS = main.o wr_blif.o wr_edif.o wr_slif.o
+CFLAGS = -g $(XCFLAGS) -I../util -I../edifparse -I../netlist
+PROG = e2fmt
+INSTDIR = ../../bin
+LIBS = ../edifparse/edifparse.a ../netlist/netlist.a ../util/util.a
+
+prog: $(PROG)
+
+$(PROG): $(OBJS) $(LIBS)
+	-/bin/rm -f $(PROG)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(PROG).new
+	mv -f $(PROG).new $(PROG)
+
+install: $(PROG)
+	-/bin/rm -rf $(INSTDIR)/$(PROG)
+	cp $(PROG) $(INSTDIR)/$(PROG)
+	chmod 775 $(INSTDIR)/$(PROG)
+
+clean:; /bin/rm -f $(OBJS) $(PROG)
+
+tags:; ctags $(SRCS) ../util/*.c ../netlist/*.c
+
+###
+main.o: ../netlist/nets.h ../util/util.h ../util/hash.h \
+	../edifparse/eprop.h ../edifparse/token.h
+wr_blif.o: ../netlist/nets.h ../util/util.h ../util/hash.h \
+	../edifparse/eprop.h
+wr_edif.o: ../netlist/nets.h ../util/util.h ../util/hash.h \
+	../edifparse/eprop.h
+wr_slif.o: ../netlist/nets.h ../util/util.h ../util/hash.h \
+	../edifparse/eprop.h

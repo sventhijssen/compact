@@ -1,0 +1,6 @@
+.model test.blif
+.inputs G473
+.outputs G231
+.names G473 G231
+0 1
+.end

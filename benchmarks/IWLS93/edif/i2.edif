@@ -1,0 +1,1917 @@
+(edif netlist
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 1993 2 0 16 45 4)
+      (author "David Rickel")
+      (program "autologic")
+    )
+  )
+  (external PRIMLIB
+    (edifLevel 0)
+    (technology
+      (numberDefinition
+      )
+      (simulationInfo
+        (logicValue H (booleanMap (true)))
+        (logicValue L (booleanMap (false)))
+      )
+    )
+    (cell OR32
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+          (port in4 (direction input))
+          (port in5 (direction input))
+          (port in6 (direction input))
+          (port in7 (direction input))
+          (port in8 (direction input))
+          (port in9 (direction input))
+          (port in10 (direction input))
+          (port in11 (direction input))
+          (port in12 (direction input))
+          (port in13 (direction input))
+          (port in14 (direction input))
+          (port in15 (direction input))
+          (port in16 (direction input))
+          (port in17 (direction input))
+          (port in18 (direction input))
+          (port in19 (direction input))
+          (port in20 (direction input))
+          (port in21 (direction input))
+          (port in22 (direction input))
+          (port in23 (direction input))
+          (port in24 (direction input))
+          (port in25 (direction input))
+          (port in26 (direction input))
+          (port in27 (direction input))
+          (port in28 (direction input))
+          (port in29 (direction input))
+          (port in30 (direction input))
+          (port in31 (direction input))
+        )
+      )
+    )
+    (cell OR16
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+          (port in4 (direction input))
+          (port in5 (direction input))
+          (port in6 (direction input))
+          (port in7 (direction input))
+          (port in8 (direction input))
+          (port in9 (direction input))
+          (port in10 (direction input))
+          (port in11 (direction input))
+          (port in12 (direction input))
+          (port in13 (direction input))
+          (port in14 (direction input))
+          (port in15 (direction input))
+        )
+      )
+    )
+    (cell OR4
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+        )
+      )
+    )
+    (cell AND3
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+        )
+      )
+    )
+    (cell AND2
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+        )
+      )
+    )
+    (cell OR24
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in0 (direction input))
+          (port in1 (direction input))
+          (port in2 (direction input))
+          (port in3 (direction input))
+          (port in4 (direction input))
+          (port in5 (direction input))
+          (port in6 (direction input))
+          (port in7 (direction input))
+          (port in8 (direction input))
+          (port in9 (direction input))
+          (port in10 (direction input))
+          (port in11 (direction input))
+          (port in12 (direction input))
+          (port in13 (direction input))
+          (port in14 (direction input))
+          (port in15 (direction input))
+          (port in16 (direction input))
+          (port in17 (direction input))
+          (port in18 (direction input))
+          (port in19 (direction input))
+          (port in20 (direction input))
+          (port in21 (direction input))
+          (port in22 (direction input))
+          (port in23 (direction input))
+        )
+      )
+    )
+    (cell INV
+      (cellType GENERIC)
+      (view INTERFACE
+        (viewType NETLIST)
+        (interface
+          (port out (direction output))
+          (port in (direction input))
+        )
+      )
+    )
+  )
+  (library USER_LIB
+    (edifLevel 0)
+    (technology
+      (numberDefinition
+      )
+      (simulationInfo
+        (logicValue H (booleanMap (true)))
+        (logicValue L (booleanMap (false)))
+      )
+    )
+    (cell TOP
+      (cellType GENERIC)
+      (view NETLIST
+        (viewType NETLIST)
+        (interface
+          (port PV202_0_ (direction output))
+          (port PV201_7_ (direction input))
+          (port PV201_6_ (direction input))
+          (port PV201_5_ (direction input))
+          (port PV201_4_ (direction input))
+          (port PV201_3_ (direction input))
+          (port PV201_2_ (direction input))
+          (port PV201_1_ (direction input))
+          (port PV201_0_ (direction input))
+          (port PV193_1_ (direction input))
+          (port PV193_0_ (direction input))
+          (port PV191_31_ (direction input))
+          (port PV190_1_ (direction input))
+          (port PV190_0_ (direction input))
+          (port PV188_31_ (direction input))
+          (port PV188_30_ (direction input))
+          (port PV188_29_ (direction input))
+          (port PV188_28_ (direction input))
+          (port PV188_27_ (direction input))
+          (port PV188_26_ (direction input))
+          (port PV188_25_ (direction input))
+          (port PV188_24_ (direction input))
+          (port PV188_23_ (direction input))
+          (port PV188_22_ (direction input))
+          (port PV178_1_ (direction input))
+          (port PV178_0_ (direction input))
+          (port PV176_31_ (direction input))
+          (port PV176_30_ (direction input))
+          (port PV176_29_ (direction input))
+          (port PV176_28_ (direction input))
+          (port PV176_27_ (direction input))
+          (port PV176_26_ (direction input))
+          (port PV176_25_ (direction input))
+          (port PV176_24_ (direction input))
+          (port PV176_23_ (direction input))
+          (port PV176_22_ (direction input))
+          (port PV176_21_ (direction input))
+          (port PV176_20_ (direction input))
+          (port PV176_19_ (direction input))
+          (port PV176_18_ (direction input))
+          (port PV176_17_ (direction input))
+          (port PV176_16_ (direction input))
+          (port PV176_15_ (direction input))
+          (port PV176_14_ (direction input))
+          (port PV176_13_ (direction input))
+          (port PV176_12_ (direction input))
+          (port PV176_11_ (direction input))
+          (port PV176_10_ (direction input))
+          (port PV176_9_ (direction input))
+          (port PV176_8_ (direction input))
+          (port PV176_7_ (direction input))
+          (port PV176_6_ (direction input))
+          (port PV176_5_ (direction input))
+          (port PV176_4_ (direction input))
+          (port PV176_3_ (direction input))
+          (port PV176_2_ (direction input))
+          (port PV176_1_ (direction input))
+          (port PV176_0_ (direction input))
+          (port PV144_31_ (direction input))
+          (port PV144_30_ (direction input))
+          (port PV144_29_ (direction input))
+          (port PV144_28_ (direction input))
+          (port PV144_27_ (direction input))
+          (port PV144_26_ (direction input))
+          (port PV144_25_ (direction input))
+          (port PV144_24_ (direction input))
+          (port PV144_23_ (direction input))
+          (port PV144_22_ (direction input))
+          (port PV144_21_ (direction input))
+          (port PV144_20_ (direction input))
+          (port PV144_19_ (direction input))
+          (port PV144_18_ (direction input))
+          (port PV130_0_ (direction input))
+          (port PV129_0_ (direction input))
+          (port PV128_0_ (direction input))
+          (port PV127_0_ (direction input))
+          (port PV126_31_ (direction input))
+          (port PV126_30_ (direction input))
+          (port PV126_29_ (direction input))
+          (port PV126_28_ (direction input))
+          (port PV126_27_ (direction input))
+          (port PV126_26_ (direction input))
+          (port PV126_25_ (direction input))
+          (port PV126_24_ (direction input))
+          (port PV126_23_ (direction input))
+          (port PV126_22_ (direction input))
+          (port PV126_21_ (direction input))
+          (port PV126_20_ (direction input))
+          (port PV126_19_ (direction input))
+          (port PV126_18_ (direction input))
+          (port PV126_17_ (direction input))
+          (port PV126_16_ (direction input))
+          (port PV126_15_ (direction input))
+          (port PV126_14_ (direction input))
+          (port PV126_13_ (direction input))
+          (port PV126_12_ (direction input))
+          (port PV126_11_ (direction input))
+          (port PV126_10_ (direction input))
+          (port PV126_9_ (direction input))
+          (port PV126_8_ (direction input))
+          (port PV126_7_ (direction input))
+          (port PV126_6_ (direction input))
+          (port PV126_5_ (direction input))
+          (port PV126_4_ (direction input))
+          (port PV126_3_ (direction input))
+          (port PV126_2_ (direction input))
+          (port PV126_1_ (direction input))
+          (port PV126_0_ (direction input))
+          (port PV94_31_ (direction input))
+          (port PV94_30_ (direction input))
+          (port PV94_29_ (direction input))
+          (port PV94_28_ (direction input))
+          (port PV94_27_ (direction input))
+          (port PV94_26_ (direction input))
+          (port PV94_25_ (direction input))
+          (port PV94_24_ (direction input))
+          (port PV94_23_ (direction input))
+          (port PV94_22_ (direction input))
+          (port PV94_21_ (direction input))
+          (port PV94_20_ (direction input))
+          (port PV94_19_ (direction input))
+          (port PV94_18_ (direction input))
+          (port PV94_17_ (direction input))
+          (port PV94_16_ (direction input))
+          (port PV94_15_ (direction input))
+          (port PV94_14_ (direction input))
+          (port PV94_13_ (direction input))
+          (port PV94_12_ (direction input))
+          (port PV94_11_ (direction input))
+          (port PV94_10_ (direction input))
+          (port PV94_9_ (direction input))
+          (port PV94_8_ (direction input))
+          (port PV94_7_ (direction input))
+          (port PV94_6_ (direction input))
+          (port PV94_5_ (direction input))
+          (port PV94_4_ (direction input))
+          (port PV94_3_ (direction input))
+          (port PV94_2_ (direction input))
+          (port PV64_0_ (direction input))
+          (port PV63_0_ (direction input))
+          (port PV62_31_ (direction input))
+          (port PV62_30_ (direction input))
+          (port PV62_29_ (direction input))
+          (port PV62_28_ (direction input))
+          (port PV62_27_ (direction input))
+          (port PV62_26_ (direction input))
+          (port PV62_25_ (direction input))
+          (port PV62_24_ (direction input))
+          (port PV62_23_ (direction input))
+          (port PV62_22_ (direction input))
+          (port PV62_21_ (direction input))
+          (port PV62_20_ (direction input))
+          (port PV62_19_ (direction input))
+          (port PV62_18_ (direction input))
+          (port PV62_17_ (direction input))
+          (port PV62_16_ (direction input))
+          (port PV62_15_ (direction input))
+          (port PV62_14_ (direction input))
+          (port PV62_13_ (direction input))
+          (port PV62_12_ (direction input))
+          (port PV62_11_ (direction input))
+          (port PV62_10_ (direction input))
+          (port PV62_9_ (direction input))
+          (port PV62_8_ (direction input))
+          (port PV62_7_ (direction input))
+          (port PV62_6_ (direction input))
+          (port PV62_5_ (direction input))
+          (port PV62_4_ (direction input))
+          (port PV62_3_ (direction input))
+          (port PV62_2_ (direction input))
+          (port PV62_1_ (direction input))
+          (port PV62_0_ (direction input))
+          (port PV30_31_ (direction input))
+          (port PV30_30_ (direction input))
+          (port PV30_29_ (direction input))
+          (port PV30_28_ (direction input))
+          (port PV30_27_ (direction input))
+          (port PV30_26_ (direction input))
+          (port PV30_25_ (direction input))
+          (port PV30_24_ (direction input))
+          (port PV30_23_ (direction input))
+          (port PV30_22_ (direction input))
+          (port PV30_21_ (direction input))
+          (port PV30_20_ (direction input))
+          (port PV30_19_ (direction input))
+          (port PV30_18_ (direction input))
+          (port PV30_17_ (direction input))
+          (port PV30_16_ (direction input))
+          (port PV30_15_ (direction input))
+          (port PV30_14_ (direction input))
+          (port PV30_13_ (direction input))
+          (port PV30_12_ (direction input))
+          (port PV30_11_ (direction input))
+          (port PV30_10_ (direction input))
+          (port PV30_9_ (direction input))
+          (port PV30_8_ (direction input))
+          (port PV30_7_ (direction input))
+          (port PV30_6_ (direction input))
+          (port PV30_5_ (direction input))
+          (port PV30_4_ (direction input))
+          (port PV30_3_ (direction input))
+          (port PV30_2_ (direction input))
+        )
+        (contents
+          (instance G_G0
+            (viewRef INTERFACE (cellRef INV (libraryRef PRIMLIB))))
+          (instance G_G1
+            (viewRef INTERFACE (cellRef OR24 (libraryRef PRIMLIB))))
+          (instance G_G2
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G3
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G4
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G5
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G6
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G7
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G8
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G9
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G10
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G11
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G12
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G13
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G14
+            (viewRef INTERFACE (cellRef OR4 (libraryRef PRIMLIB))))
+          (instance G_G15
+            (viewRef INTERFACE (cellRef OR4 (libraryRef PRIMLIB))))
+          (instance G_G16
+            (viewRef INTERFACE (cellRef OR4 (libraryRef PRIMLIB))))
+          (instance G_G17
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G18
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G19
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G20
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G21
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G22
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G23
+            (viewRef INTERFACE (cellRef OR16 (libraryRef PRIMLIB))))
+          (instance G_G24
+            (viewRef INTERFACE (cellRef OR16 (libraryRef PRIMLIB))))
+          (instance G_G25
+            (viewRef INTERFACE (cellRef OR16 (libraryRef PRIMLIB))))
+          (instance G_G26
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G27
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G28
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G29
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G30
+            (viewRef INTERFACE (cellRef AND3 (libraryRef PRIMLIB))))
+          (instance G_G31
+            (viewRef INTERFACE (cellRef AND2 (libraryRef PRIMLIB))))
+          (instance G_G32
+            (viewRef INTERFACE (cellRef OR32 (libraryRef PRIMLIB))))
+          (instance G_G33
+            (viewRef INTERFACE (cellRef OR32 (libraryRef PRIMLIB))))
+          (instance G_G34
+            (viewRef INTERFACE (cellRef OR32 (libraryRef PRIMLIB))))
+          (instance G_G35
+            (viewRef INTERFACE (cellRef OR32 (libraryRef PRIMLIB))))
+          (net NV207
+            (joined
+              (portRef in0 (instanceRef G_G31))
+              (portRef in2 (instanceRef G_G30))
+              (portRef in2 (instanceRef G_G29))
+              (portRef out (instanceRef G_G0))
+            )
+          )
+          (net NV237
+            (joined
+              (portRef in23 (instanceRef G_G1))
+              (portRef out (instanceRef G_G2))
+            )
+          )
+          (net NV236
+            (joined
+              (portRef in1 (instanceRef G_G1))
+              (portRef out (instanceRef G_G3))
+            )
+          )
+          (net NV235
+            (joined
+              (portRef in1 (instanceRef G_G3))
+              (portRef in0 (instanceRef G_G1))
+              (portRef out (instanceRef G_G4))
+            )
+          )
+          (net NV234
+            (joined
+              (portRef in21 (instanceRef G_G1))
+              (portRef out (instanceRef G_G5))
+            )
+          )
+          (net NV233
+            (joined
+              (portRef in1 (instanceRef G_G5))
+              (portRef in22 (instanceRef G_G1))
+              (portRef out (instanceRef G_G6))
+            )
+          )
+          (net NV232
+            (joined
+              (portRef in2 (instanceRef G_G1))
+              (portRef out (instanceRef G_G7))
+            )
+          )
+          (net NV231
+            (joined
+              (portRef in20 (instanceRef G_G1))
+              (portRef out (instanceRef G_G8))
+            )
+          )
+          (net NV230
+            (joined
+              (portRef in4 (instanceRef G_G1))
+              (portRef out (instanceRef G_G9))
+            )
+          )
+          (net NV229
+            (joined
+              (portRef in1 (instanceRef G_G9))
+              (portRef in3 (instanceRef G_G1))
+              (portRef out (instanceRef G_G10))
+            )
+          )
+          (net NV228
+            (joined
+              (portRef in18 (instanceRef G_G1))
+              (portRef out (instanceRef G_G11))
+            )
+          )
+          (net NV227
+            (joined
+              (portRef in1 (instanceRef G_G11))
+              (portRef in19 (instanceRef G_G1))
+              (portRef out (instanceRef G_G12))
+            )
+          )
+          (net NV226
+            (joined
+              (portRef in5 (instanceRef G_G1))
+              (portRef out (instanceRef G_G13))
+            )
+          )
+          (net N_N2
+            (joined
+              (portRef in1 (instanceRef G_G8))
+              (portRef in1 (instanceRef G_G10))
+              (portRef out (instanceRef G_G14))
+            )
+          )
+          (net N_N3
+            (joined
+              (portRef in1 (instanceRef G_G12))
+              (portRef out (instanceRef G_G15))
+            )
+          )
+          (net N_N4
+            (joined
+              (portRef in1 (instanceRef G_G13))
+              (portRef out (instanceRef G_G16))
+            )
+          )
+          (net NV222
+            (joined
+              (portRef in17 (instanceRef G_G1))
+              (portRef out (instanceRef G_G17))
+            )
+          )
+          (net NV221
+            (joined
+              (portRef in7 (instanceRef G_G1))
+              (portRef out (instanceRef G_G18))
+            )
+          )
+          (net NV220
+            (joined
+              (portRef in1 (instanceRef G_G18))
+              (portRef in6 (instanceRef G_G1))
+              (portRef out (instanceRef G_G19))
+            )
+          )
+          (net NV219
+            (joined
+              (portRef in15 (instanceRef G_G1))
+              (portRef out (instanceRef G_G20))
+            )
+          )
+          (net NV218
+            (joined
+              (portRef in1 (instanceRef G_G20))
+              (portRef in16 (instanceRef G_G1))
+              (portRef out (instanceRef G_G21))
+            )
+          )
+          (net NV217
+            (joined
+              (portRef in8 (instanceRef G_G1))
+              (portRef out (instanceRef G_G22))
+            )
+          )
+          (net N_N5
+            (joined
+              (portRef in1 (instanceRef G_G17))
+              (portRef in1 (instanceRef G_G19))
+              (portRef out (instanceRef G_G23))
+            )
+          )
+          (net N_N6
+            (joined
+              (portRef in1 (instanceRef G_G21))
+              (portRef out (instanceRef G_G24))
+            )
+          )
+          (net N_N7
+            (joined
+              (portRef in1 (instanceRef G_G22))
+              (portRef out (instanceRef G_G25))
+            )
+          )
+          (net NV213
+            (joined
+              (portRef in14 (instanceRef G_G1))
+              (portRef out (instanceRef G_G26))
+            )
+          )
+          (net NV212
+            (joined
+              (portRef in9 (instanceRef G_G1))
+              (portRef out (instanceRef G_G27))
+            )
+          )
+          (net NV211
+            (joined
+              (portRef in13 (instanceRef G_G1))
+              (portRef out (instanceRef G_G28))
+            )
+          )
+          (net NV210
+            (joined
+              (portRef in10 (instanceRef G_G1))
+              (portRef out (instanceRef G_G29))
+            )
+          )
+          (net NV209
+            (joined
+              (portRef in12 (instanceRef G_G1))
+              (portRef out (instanceRef G_G30))
+            )
+          )
+          (net NV208
+            (joined
+              (portRef in11 (instanceRef G_G1))
+              (portRef out (instanceRef G_G31))
+            )
+          )
+          (net N_N8
+            (joined
+              (portRef in1 (instanceRef G_G26))
+              (portRef out (instanceRef G_G32))
+            )
+          )
+          (net N_N9
+            (joined
+              (portRef in1 (instanceRef G_G27))
+              (portRef out (instanceRef G_G33))
+            )
+          )
+          (net N_N10
+            (joined
+              (portRef in1 (instanceRef G_G29))
+              (portRef out (instanceRef G_G34))
+            )
+          )
+          (net N_N11
+            (joined
+              (portRef in1 (instanceRef G_G30))
+              (portRef out (instanceRef G_G35))
+            )
+          )
+          (net N_N12
+            (joined
+              (portRef out (instanceRef G_G1))
+              (portRef PV202_0_)
+            )
+          )
+          (net N_N13
+            (joined
+              (portRef in1 (instanceRef G_G2))
+              (portRef in1 (instanceRef G_G4))
+              (portRef PV193_1_)
+            )
+          )
+          (net N_N14
+            (joined
+              (portRef in1 (instanceRef G_G6))
+              (portRef PV193_0_)
+            )
+          )
+          (net N_N15
+            (joined
+              (portRef in0 (instanceRef G_G4))
+              (portRef in0 (instanceRef G_G6))
+              (portRef in2 (instanceRef G_G7))
+              (portRef PV201_6_)
+            )
+          )
+          (net N_N16
+            (joined
+              (portRef in1 (instanceRef G_G7))
+              (portRef PV191_31_)
+            )
+          )
+          (net N_N17
+            (joined
+              (portRef in0 (instanceRef G_G2))
+              (portRef in0 (instanceRef G_G3))
+              (portRef in0 (instanceRef G_G5))
+              (portRef in0 (instanceRef G_G7))
+              (portRef PV201_7_)
+            )
+          )
+          (net N_N18
+            (joined
+              (portRef in0 (instanceRef G_G10))
+              (portRef in0 (instanceRef G_G12))
+              (portRef in2 (instanceRef G_G13))
+              (portRef PV201_4_)
+            )
+          )
+          (net N_N19
+            (joined
+              (portRef in0 (instanceRef G_G8))
+              (portRef in0 (instanceRef G_G9))
+              (portRef in0 (instanceRef G_G11))
+              (portRef in0 (instanceRef G_G13))
+              (portRef PV201_5_)
+            )
+          )
+          (net N_N20
+            (joined
+              (portRef in0 (instanceRef G_G14))
+              (portRef PV190_0_)
+            )
+          )
+          (net N_N21
+            (joined
+              (portRef in1 (instanceRef G_G14))
+              (portRef PV188_30_)
+            )
+          )
+          (net N_N22
+            (joined
+              (portRef in2 (instanceRef G_G14))
+              (portRef PV188_31_)
+            )
+          )
+          (net N_N23
+            (joined
+              (portRef in3 (instanceRef G_G14))
+              (portRef PV190_1_)
+            )
+          )
+          (net N_N24
+            (joined
+              (portRef in0 (instanceRef G_G15))
+              (portRef PV188_28_)
+            )
+          )
+          (net N_N25
+            (joined
+              (portRef in1 (instanceRef G_G15))
+              (portRef PV188_26_)
+            )
+          )
+          (net N_N26
+            (joined
+              (portRef in2 (instanceRef G_G15))
+              (portRef PV188_27_)
+            )
+          )
+          (net N_N27
+            (joined
+              (portRef in3 (instanceRef G_G15))
+              (portRef PV188_29_)
+            )
+          )
+          (net N_N28
+            (joined
+              (portRef in0 (instanceRef G_G16))
+              (portRef PV188_24_)
+            )
+          )
+          (net N_N29
+            (joined
+              (portRef in1 (instanceRef G_G16))
+              (portRef PV188_22_)
+            )
+          )
+          (net N_N30
+            (joined
+              (portRef in2 (instanceRef G_G16))
+              (portRef PV188_23_)
+            )
+          )
+          (net N_N31
+            (joined
+              (portRef in3 (instanceRef G_G16))
+              (portRef PV188_25_)
+            )
+          )
+          (net N_N32
+            (joined
+              (portRef in0 (instanceRef G_G19))
+              (portRef in0 (instanceRef G_G21))
+              (portRef in2 (instanceRef G_G22))
+              (portRef PV201_2_)
+            )
+          )
+          (net N_N33
+            (joined
+              (portRef in0 (instanceRef G_G17))
+              (portRef in0 (instanceRef G_G18))
+              (portRef in0 (instanceRef G_G20))
+              (portRef in0 (instanceRef G_G22))
+              (portRef PV201_3_)
+            )
+          )
+          (net N_N34
+            (joined
+              (portRef in0 (instanceRef G_G23))
+              (portRef PV178_0_)
+            )
+          )
+          (net N_N35
+            (joined
+              (portRef in1 (instanceRef G_G23))
+              (portRef PV176_30_)
+            )
+          )
+          (net N_N36
+            (joined
+              (portRef in2 (instanceRef G_G23))
+              (portRef PV176_28_)
+            )
+          )
+          (net N_N37
+            (joined
+              (portRef in3 (instanceRef G_G23))
+              (portRef PV176_26_)
+            )
+          )
+          (net N_N38
+            (joined
+              (portRef in4 (instanceRef G_G23))
+              (portRef PV176_24_)
+            )
+          )
+          (net N_N39
+            (joined
+              (portRef in5 (instanceRef G_G23))
+              (portRef PV176_22_)
+            )
+          )
+          (net N_N40
+            (joined
+              (portRef in6 (instanceRef G_G23))
+              (portRef PV176_20_)
+            )
+          )
+          (net N_N41
+            (joined
+              (portRef in7 (instanceRef G_G23))
+              (portRef PV176_18_)
+            )
+          )
+          (net N_N42
+            (joined
+              (portRef in8 (instanceRef G_G23))
+              (portRef PV176_19_)
+            )
+          )
+          (net N_N43
+            (joined
+              (portRef in9 (instanceRef G_G23))
+              (portRef PV176_21_)
+            )
+          )
+          (net N_N44
+            (joined
+              (portRef in10 (instanceRef G_G23))
+              (portRef PV176_23_)
+            )
+          )
+          (net N_N45
+            (joined
+              (portRef in11 (instanceRef G_G23))
+              (portRef PV176_25_)
+            )
+          )
+          (net N_N46
+            (joined
+              (portRef in12 (instanceRef G_G23))
+              (portRef PV176_27_)
+            )
+          )
+          (net N_N47
+            (joined
+              (portRef in13 (instanceRef G_G23))
+              (portRef PV176_29_)
+            )
+          )
+          (net N_N48
+            (joined
+              (portRef in14 (instanceRef G_G23))
+              (portRef PV176_31_)
+            )
+          )
+          (net N_N49
+            (joined
+              (portRef in15 (instanceRef G_G23))
+              (portRef PV178_1_)
+            )
+          )
+          (net N_N50
+            (joined
+              (portRef in0 (instanceRef G_G24))
+              (portRef PV176_16_)
+            )
+          )
+          (net N_N51
+            (joined
+              (portRef in1 (instanceRef G_G24))
+              (portRef PV176_14_)
+            )
+          )
+          (net N_N52
+            (joined
+              (portRef in2 (instanceRef G_G24))
+              (portRef PV176_12_)
+            )
+          )
+          (net N_N53
+            (joined
+              (portRef in3 (instanceRef G_G24))
+              (portRef PV176_10_)
+            )
+          )
+          (net N_N54
+            (joined
+              (portRef in4 (instanceRef G_G24))
+              (portRef PV176_8_)
+            )
+          )
+          (net N_N55
+            (joined
+              (portRef in5 (instanceRef G_G24))
+              (portRef PV176_6_)
+            )
+          )
+          (net N_N56
+            (joined
+              (portRef in6 (instanceRef G_G24))
+              (portRef PV176_4_)
+            )
+          )
+          (net N_N57
+            (joined
+              (portRef in7 (instanceRef G_G24))
+              (portRef PV176_2_)
+            )
+          )
+          (net N_N58
+            (joined
+              (portRef in8 (instanceRef G_G24))
+              (portRef PV176_3_)
+            )
+          )
+          (net N_N59
+            (joined
+              (portRef in9 (instanceRef G_G24))
+              (portRef PV176_5_)
+            )
+          )
+          (net N_N60
+            (joined
+              (portRef in10 (instanceRef G_G24))
+              (portRef PV176_7_)
+            )
+          )
+          (net N_N61
+            (joined
+              (portRef in11 (instanceRef G_G24))
+              (portRef PV176_9_)
+            )
+          )
+          (net N_N62
+            (joined
+              (portRef in12 (instanceRef G_G24))
+              (portRef PV176_11_)
+            )
+          )
+          (net N_N63
+            (joined
+              (portRef in13 (instanceRef G_G24))
+              (portRef PV176_13_)
+            )
+          )
+          (net N_N64
+            (joined
+              (portRef in14 (instanceRef G_G24))
+              (portRef PV176_15_)
+            )
+          )
+          (net N_N65
+            (joined
+              (portRef in15 (instanceRef G_G24))
+              (portRef PV176_17_)
+            )
+          )
+          (net N_N66
+            (joined
+              (portRef in0 (instanceRef G_G25))
+              (portRef PV176_0_)
+            )
+          )
+          (net N_N67
+            (joined
+              (portRef in1 (instanceRef G_G25))
+              (portRef PV144_30_)
+            )
+          )
+          (net N_N68
+            (joined
+              (portRef in2 (instanceRef G_G25))
+              (portRef PV144_28_)
+            )
+          )
+          (net N_N69
+            (joined
+              (portRef in3 (instanceRef G_G25))
+              (portRef PV144_26_)
+            )
+          )
+          (net N_N70
+            (joined
+              (portRef in4 (instanceRef G_G25))
+              (portRef PV144_24_)
+            )
+          )
+          (net N_N71
+            (joined
+              (portRef in5 (instanceRef G_G25))
+              (portRef PV144_22_)
+            )
+          )
+          (net N_N72
+            (joined
+              (portRef in6 (instanceRef G_G25))
+              (portRef PV144_20_)
+            )
+          )
+          (net N_N73
+            (joined
+              (portRef in7 (instanceRef G_G25))
+              (portRef PV144_18_)
+            )
+          )
+          (net N_N74
+            (joined
+              (portRef in8 (instanceRef G_G25))
+              (portRef PV144_19_)
+            )
+          )
+          (net N_N75
+            (joined
+              (portRef in9 (instanceRef G_G25))
+              (portRef PV144_21_)
+            )
+          )
+          (net N_N76
+            (joined
+              (portRef in10 (instanceRef G_G25))
+              (portRef PV144_23_)
+            )
+          )
+          (net N_N77
+            (joined
+              (portRef in11 (instanceRef G_G25))
+              (portRef PV144_25_)
+            )
+          )
+          (net N_N78
+            (joined
+              (portRef in12 (instanceRef G_G25))
+              (portRef PV144_27_)
+            )
+          )
+          (net N_N79
+            (joined
+              (portRef in13 (instanceRef G_G25))
+              (portRef PV144_29_)
+            )
+          )
+          (net N_N80
+            (joined
+              (portRef in14 (instanceRef G_G25))
+              (portRef PV144_31_)
+            )
+          )
+          (net N_N81
+            (joined
+              (portRef in15 (instanceRef G_G25))
+              (portRef PV176_1_)
+            )
+          )
+          (net N_N82
+            (joined
+              (portRef in1 (instanceRef G_G28))
+              (portRef PV130_0_)
+            )
+          )
+          (net N_N83
+            (joined
+              (portRef in0 (instanceRef G_G26))
+              (portRef in0 (instanceRef G_G27))
+              (portRef in0 (instanceRef G_G29))
+              (portRef in0 (instanceRef G_G30))
+              (portRef PV201_1_)
+            )
+          )
+          (net N_N84
+            (joined
+              (portRef in1 (instanceRef G_G31))
+              (portRef PV129_0_)
+            )
+          )
+          (net N_N85
+            (joined
+              (portRef in (instanceRef G_G0))
+              (portRef in2 (instanceRef G_G26))
+              (portRef in2 (instanceRef G_G27))
+              (portRef in0 (instanceRef G_G28))
+              (portRef PV201_0_)
+            )
+          )
+          (net N_N86
+            (joined
+              (portRef in0 (instanceRef G_G32))
+              (portRef PV127_0_)
+            )
+          )
+          (net N_N87
+            (joined
+              (portRef in1 (instanceRef G_G32))
+              (portRef PV126_30_)
+            )
+          )
+          (net N_N88
+            (joined
+              (portRef in2 (instanceRef G_G32))
+              (portRef PV126_28_)
+            )
+          )
+          (net N_N89
+            (joined
+              (portRef in3 (instanceRef G_G32))
+              (portRef PV126_26_)
+            )
+          )
+          (net N_N90
+            (joined
+              (portRef in4 (instanceRef G_G32))
+              (portRef PV126_24_)
+            )
+          )
+          (net N_N91
+            (joined
+              (portRef in5 (instanceRef G_G32))
+              (portRef PV126_22_)
+            )
+          )
+          (net N_N92
+            (joined
+              (portRef in6 (instanceRef G_G32))
+              (portRef PV126_20_)
+            )
+          )
+          (net N_N93
+            (joined
+              (portRef in7 (instanceRef G_G32))
+              (portRef PV126_18_)
+            )
+          )
+          (net N_N94
+            (joined
+              (portRef in8 (instanceRef G_G32))
+              (portRef PV126_16_)
+            )
+          )
+          (net N_N95
+            (joined
+              (portRef in9 (instanceRef G_G32))
+              (portRef PV126_14_)
+            )
+          )
+          (net N_N96
+            (joined
+              (portRef in10 (instanceRef G_G32))
+              (portRef PV126_12_)
+            )
+          )
+          (net N_N97
+            (joined
+              (portRef in11 (instanceRef G_G32))
+              (portRef PV126_10_)
+            )
+          )
+          (net N_N98
+            (joined
+              (portRef in12 (instanceRef G_G32))
+              (portRef PV126_8_)
+            )
+          )
+          (net N_N99
+            (joined
+              (portRef in13 (instanceRef G_G32))
+              (portRef PV126_6_)
+            )
+          )
+          (net N_N100
+            (joined
+              (portRef in14 (instanceRef G_G32))
+              (portRef PV126_4_)
+            )
+          )
+          (net N_N101
+            (joined
+              (portRef in15 (instanceRef G_G32))
+              (portRef PV126_2_)
+            )
+          )
+          (net N_N102
+            (joined
+              (portRef in16 (instanceRef G_G32))
+              (portRef PV126_3_)
+            )
+          )
+          (net N_N103
+            (joined
+              (portRef in17 (instanceRef G_G32))
+              (portRef PV126_5_)
+            )
+          )
+          (net N_N104
+            (joined
+              (portRef in18 (instanceRef G_G32))
+              (portRef PV126_7_)
+            )
+          )
+          (net N_N105
+            (joined
+              (portRef in19 (instanceRef G_G32))
+              (portRef PV126_9_)
+            )
+          )
+          (net N_N106
+            (joined
+              (portRef in20 (instanceRef G_G32))
+              (portRef PV126_11_)
+            )
+          )
+          (net N_N107
+            (joined
+              (portRef in21 (instanceRef G_G32))
+              (portRef PV126_13_)
+            )
+          )
+          (net N_N108
+            (joined
+              (portRef in22 (instanceRef G_G32))
+              (portRef PV126_15_)
+            )
+          )
+          (net N_N109
+            (joined
+              (portRef in23 (instanceRef G_G32))
+              (portRef PV126_17_)
+            )
+          )
+          (net N_N110
+            (joined
+              (portRef in24 (instanceRef G_G32))
+              (portRef PV126_19_)
+            )
+          )
+          (net N_N111
+            (joined
+              (portRef in25 (instanceRef G_G32))
+              (portRef PV126_21_)
+            )
+          )
+          (net N_N112
+            (joined
+              (portRef in26 (instanceRef G_G32))
+              (portRef PV126_23_)
+            )
+          )
+          (net N_N113
+            (joined
+              (portRef in27 (instanceRef G_G32))
+              (portRef PV126_25_)
+            )
+          )
+          (net N_N114
+            (joined
+              (portRef in28 (instanceRef G_G32))
+              (portRef PV126_27_)
+            )
+          )
+          (net N_N115
+            (joined
+              (portRef in29 (instanceRef G_G32))
+              (portRef PV126_29_)
+            )
+          )
+          (net N_N116
+            (joined
+              (portRef in30 (instanceRef G_G32))
+              (portRef PV126_31_)
+            )
+          )
+          (net N_N117
+            (joined
+              (portRef in31 (instanceRef G_G32))
+              (portRef PV128_0_)
+            )
+          )
+          (net N_N118
+            (joined
+              (portRef in0 (instanceRef G_G33))
+              (portRef PV126_0_)
+            )
+          )
+          (net N_N119
+            (joined
+              (portRef in1 (instanceRef G_G33))
+              (portRef PV94_30_)
+            )
+          )
+          (net N_N120
+            (joined
+              (portRef in2 (instanceRef G_G33))
+              (portRef PV94_28_)
+            )
+          )
+          (net N_N121
+            (joined
+              (portRef in3 (instanceRef G_G33))
+              (portRef PV94_26_)
+            )
+          )
+          (net N_N122
+            (joined
+              (portRef in4 (instanceRef G_G33))
+              (portRef PV94_24_)
+            )
+          )
+          (net N_N123
+            (joined
+              (portRef in5 (instanceRef G_G33))
+              (portRef PV94_22_)
+            )
+          )
+          (net N_N124
+            (joined
+              (portRef in6 (instanceRef G_G33))
+              (portRef PV94_20_)
+            )
+          )
+          (net N_N125
+            (joined
+              (portRef in7 (instanceRef G_G33))
+              (portRef PV94_18_)
+            )
+          )
+          (net N_N126
+            (joined
+              (portRef in8 (instanceRef G_G33))
+              (portRef PV94_16_)
+            )
+          )
+          (net N_N127
+            (joined
+              (portRef in9 (instanceRef G_G33))
+              (portRef PV94_14_)
+            )
+          )
+          (net N_N128
+            (joined
+              (portRef in10 (instanceRef G_G33))
+              (portRef PV94_12_)
+            )
+          )
+          (net N_N129
+            (joined
+              (portRef in11 (instanceRef G_G33))
+              (portRef PV94_10_)
+            )
+          )
+          (net N_N130
+            (joined
+              (portRef in12 (instanceRef G_G33))
+              (portRef PV94_8_)
+            )
+          )
+          (net N_N131
+            (joined
+              (portRef in13 (instanceRef G_G33))
+              (portRef PV94_6_)
+            )
+          )
+          (net N_N132
+            (joined
+              (portRef in14 (instanceRef G_G33))
+              (portRef PV94_4_)
+            )
+          )
+          (net N_N133
+            (joined
+              (portRef in15 (instanceRef G_G33))
+              (portRef PV94_2_)
+            )
+          )
+          (net N_N134
+            (joined
+              (portRef in16 (instanceRef G_G33))
+              (portRef PV94_3_)
+            )
+          )
+          (net N_N135
+            (joined
+              (portRef in17 (instanceRef G_G33))
+              (portRef PV94_5_)
+            )
+          )
+          (net N_N136
+            (joined
+              (portRef in18 (instanceRef G_G33))
+              (portRef PV94_7_)
+            )
+          )
+          (net N_N137
+            (joined
+              (portRef in19 (instanceRef G_G33))
+              (portRef PV94_9_)
+            )
+          )
+          (net N_N138
+            (joined
+              (portRef in20 (instanceRef G_G33))
+              (portRef PV94_11_)
+            )
+          )
+          (net N_N139
+            (joined
+              (portRef in21 (instanceRef G_G33))
+              (portRef PV94_13_)
+            )
+          )
+          (net N_N140
+            (joined
+              (portRef in22 (instanceRef G_G33))
+              (portRef PV94_15_)
+            )
+          )
+          (net N_N141
+            (joined
+              (portRef in23 (instanceRef G_G33))
+              (portRef PV94_17_)
+            )
+          )
+          (net N_N142
+            (joined
+              (portRef in24 (instanceRef G_G33))
+              (portRef PV94_19_)
+            )
+          )
+          (net N_N143
+            (joined
+              (portRef in25 (instanceRef G_G33))
+              (portRef PV94_21_)
+            )
+          )
+          (net N_N144
+            (joined
+              (portRef in26 (instanceRef G_G33))
+              (portRef PV94_23_)
+            )
+          )
+          (net N_N145
+            (joined
+              (portRef in27 (instanceRef G_G33))
+              (portRef PV94_25_)
+            )
+          )
+          (net N_N146
+            (joined
+              (portRef in28 (instanceRef G_G33))
+              (portRef PV94_27_)
+            )
+          )
+          (net N_N147
+            (joined
+              (portRef in29 (instanceRef G_G33))
+              (portRef PV94_29_)
+            )
+          )
+          (net N_N148
+            (joined
+              (portRef in30 (instanceRef G_G33))
+              (portRef PV94_31_)
+            )
+          )
+          (net N_N149
+            (joined
+              (portRef in31 (instanceRef G_G33))
+              (portRef PV126_1_)
+            )
+          )
+          (net N_N150
+            (joined
+              (portRef in0 (instanceRef G_G34))
+              (portRef PV63_0_)
+            )
+          )
+          (net N_N151
+            (joined
+              (portRef in1 (instanceRef G_G34))
+              (portRef PV62_30_)
+            )
+          )
+          (net N_N152
+            (joined
+              (portRef in2 (instanceRef G_G34))
+              (portRef PV62_28_)
+            )
+          )
+          (net N_N153
+            (joined
+              (portRef in3 (instanceRef G_G34))
+              (portRef PV62_26_)
+            )
+          )
+          (net N_N154
+            (joined
+              (portRef in4 (instanceRef G_G34))
+              (portRef PV62_24_)
+            )
+          )
+          (net N_N155
+            (joined
+              (portRef in5 (instanceRef G_G34))
+              (portRef PV62_22_)
+            )
+          )
+          (net N_N156
+            (joined
+              (portRef in6 (instanceRef G_G34))
+              (portRef PV62_20_)
+            )
+          )
+          (net N_N157
+            (joined
+              (portRef in7 (instanceRef G_G34))
+              (portRef PV62_18_)
+            )
+          )
+          (net N_N158
+            (joined
+              (portRef in8 (instanceRef G_G34))
+              (portRef PV62_16_)
+            )
+          )
+          (net N_N159
+            (joined
+              (portRef in9 (instanceRef G_G34))
+              (portRef PV62_14_)
+            )
+          )
+          (net N_N160
+            (joined
+              (portRef in10 (instanceRef G_G34))
+              (portRef PV62_12_)
+            )
+          )
+          (net N_N161
+            (joined
+              (portRef in11 (instanceRef G_G34))
+              (portRef PV62_10_)
+            )
+          )
+          (net N_N162
+            (joined
+              (portRef in12 (instanceRef G_G34))
+              (portRef PV62_8_)
+            )
+          )
+          (net N_N163
+            (joined
+              (portRef in13 (instanceRef G_G34))
+              (portRef PV62_6_)
+            )
+          )
+          (net N_N164
+            (joined
+              (portRef in14 (instanceRef G_G34))
+              (portRef PV62_4_)
+            )
+          )
+          (net N_N165
+            (joined
+              (portRef in15 (instanceRef G_G34))
+              (portRef PV62_2_)
+            )
+          )
+          (net N_N166
+            (joined
+              (portRef in16 (instanceRef G_G34))
+              (portRef PV62_3_)
+            )
+          )
+          (net N_N167
+            (joined
+              (portRef in17 (instanceRef G_G34))
+              (portRef PV62_5_)
+            )
+          )
+          (net N_N168
+            (joined
+              (portRef in18 (instanceRef G_G34))
+              (portRef PV62_7_)
+            )
+          )
+          (net N_N169
+            (joined
+              (portRef in19 (instanceRef G_G34))
+              (portRef PV62_9_)
+            )
+          )
+          (net N_N170
+            (joined
+              (portRef in20 (instanceRef G_G34))
+              (portRef PV62_11_)
+            )
+          )
+          (net N_N171
+            (joined
+              (portRef in21 (instanceRef G_G34))
+              (portRef PV62_13_)
+            )
+          )
+          (net N_N172
+            (joined
+              (portRef in22 (instanceRef G_G34))
+              (portRef PV62_15_)
+            )
+          )
+          (net N_N173
+            (joined
+              (portRef in23 (instanceRef G_G34))
+              (portRef PV62_17_)
+            )
+          )
+          (net N_N174
+            (joined
+              (portRef in24 (instanceRef G_G34))
+              (portRef PV62_19_)
+            )
+          )
+          (net N_N175
+            (joined
+              (portRef in25 (instanceRef G_G34))
+              (portRef PV62_21_)
+            )
+          )
+          (net N_N176
+            (joined
+              (portRef in26 (instanceRef G_G34))
+              (portRef PV62_23_)
+            )
+          )
+          (net N_N177
+            (joined
+              (portRef in27 (instanceRef G_G34))
+              (portRef PV62_25_)
+            )
+          )
+          (net N_N178
+            (joined
+              (portRef in28 (instanceRef G_G34))
+              (portRef PV62_27_)
+            )
+          )
+          (net N_N179
+            (joined
+              (portRef in29 (instanceRef G_G34))
+              (portRef PV62_29_)
+            )
+          )
+          (net N_N180
+            (joined
+              (portRef in30 (instanceRef G_G34))
+              (portRef PV62_31_)
+            )
+          )
+          (net N_N181
+            (joined
+              (portRef in31 (instanceRef G_G34))
+              (portRef PV64_0_)
+            )
+          )
+          (net N_N182
+            (joined
+              (portRef in0 (instanceRef G_G35))
+              (portRef PV62_0_)
+            )
+          )
+          (net N_N183
+            (joined
+              (portRef in1 (instanceRef G_G35))
+              (portRef PV30_30_)
+            )
+          )
+          (net N_N184
+            (joined
+              (portRef in2 (instanceRef G_G35))
+              (portRef PV30_28_)
+            )
+          )
+          (net N_N185
+            (joined
+              (portRef in3 (instanceRef G_G35))
+              (portRef PV30_26_)
+            )
+          )
+          (net N_N186
+            (joined
+              (portRef in4 (instanceRef G_G35))
+              (portRef PV30_24_)
+            )
+          )
+          (net N_N187
+            (joined
+              (portRef in5 (instanceRef G_G35))
+              (portRef PV30_22_)
+            )
+          )
+          (net N_N188
+            (joined
+              (portRef in6 (instanceRef G_G35))
+              (portRef PV30_20_)
+            )
+          )
+          (net N_N189
+            (joined
+              (portRef in7 (instanceRef G_G35))
+              (portRef PV30_18_)
+            )
+          )
+          (net N_N190
+            (joined
+              (portRef in8 (instanceRef G_G35))
+              (portRef PV30_16_)
+            )
+          )
+          (net N_N191
+            (joined
+              (portRef in9 (instanceRef G_G35))
+              (portRef PV30_14_)
+            )
+          )
+          (net N_N192
+            (joined
+              (portRef in10 (instanceRef G_G35))
+              (portRef PV30_12_)
+            )
+          )
+          (net N_N193
+            (joined
+              (portRef in11 (instanceRef G_G35))
+              (portRef PV30_10_)
+            )
+          )
+          (net N_N194
+            (joined
+              (portRef in12 (instanceRef G_G35))
+              (portRef PV30_8_)
+            )
+          )
+          (net N_N195
+            (joined
+              (portRef in13 (instanceRef G_G35))
+              (portRef PV30_6_)
+            )
+          )
+          (net N_N196
+            (joined
+              (portRef in14 (instanceRef G_G35))
+              (portRef PV30_4_)
+            )
+          )
+          (net N_N197
+            (joined
+              (portRef in15 (instanceRef G_G35))
+              (portRef PV30_2_)
+            )
+          )
+          (net N_N198
+            (joined
+              (portRef in16 (instanceRef G_G35))
+              (portRef PV30_3_)
+            )
+          )
+          (net N_N199
+            (joined
+              (portRef in17 (instanceRef G_G35))
+              (portRef PV30_5_)
+            )
+          )
+          (net N_N200
+            (joined
+              (portRef in18 (instanceRef G_G35))
+              (portRef PV30_7_)
+            )
+          )
+          (net N_N201
+            (joined
+              (portRef in19 (instanceRef G_G35))
+              (portRef PV30_9_)
+            )
+          )
+          (net N_N202
+            (joined
+              (portRef in20 (instanceRef G_G35))
+              (portRef PV30_11_)
+            )
+          )
+          (net N_N203
+            (joined
+              (portRef in21 (instanceRef G_G35))
+              (portRef PV30_13_)
+            )
+          )
+          (net N_N204
+            (joined
+              (portRef in22 (instanceRef G_G35))
+              (portRef PV30_15_)
+            )
+          )
+          (net N_N205
+            (joined
+              (portRef in23 (instanceRef G_G35))
+              (portRef PV30_17_)
+            )
+          )
+          (net N_N206
+            (joined
+              (portRef in24 (instanceRef G_G35))
+              (portRef PV30_19_)
+            )
+          )
+          (net N_N207
+            (joined
+              (portRef in25 (instanceRef G_G35))
+              (portRef PV30_21_)
+            )
+          )
+          (net N_N208
+            (joined
+              (portRef in26 (instanceRef G_G35))
+              (portRef PV30_23_)
+            )
+          )
+          (net N_N209
+            (joined
+              (portRef in27 (instanceRef G_G35))
+              (portRef PV30_25_)
+            )
+          )
+          (net N_N210
+            (joined
+              (portRef in28 (instanceRef G_G35))
+              (portRef PV30_27_)
+            )
+          )
+          (net N_N211
+            (joined
+              (portRef in29 (instanceRef G_G35))
+              (portRef PV30_29_)
+            )
+          )
+          (net N_N212
+            (joined
+              (portRef in30 (instanceRef G_G35))
+              (portRef PV30_31_)
+            )
+          )
+          (net N_N213
+            (joined
+              (portRef in31 (instanceRef G_G35))
+              (portRef PV62_1_)
+            )
+          )
+        )
+      )
+    )
+  )
+)

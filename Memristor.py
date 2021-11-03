@@ -1,7 +1,7 @@
 from Literal import Literal
 
 
-class Memristor():
+class Memristor:
 
     def __init__(self, row: int, column: int, literal: Literal):
         self.row = row

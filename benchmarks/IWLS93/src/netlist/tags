@@ -1,0 +1,96 @@
+addinstance	misc.c	/^instance *addinstance(vp, instof)$/
+addnet	misc.c	/^net *addnet(vp)$/
+computehash	../util/hash.c	/^static int computehash(ht, name)$/
+deleteinstance	misc.c	/^void deleteinstance(ip)$/
+deletenet	misc.c	/^void deletenet(np)$/
+dissolve	flatten.c	/^void dissolve(tip)$/
+dprintf	edif_actions.c	/^void dprintf(va_alist)$/
+ep_addc	../edifparse/token.c	/^static ep_addc(ch)$/
+ep_addkey	../edifparse/parse.c	/^ep_keyword *ep_addkey(name, args, f)$/
+ep_clearnametab	../edifparse/parse.c	/^void ep_clearnametab()$/
+ep_findkey	../edifparse/parse.c	/^ep_keyword *ep_findkey(name)$/
+ep_getarg	../edifparse/parse.c	/^int ep_getarg(keystr)$/
+ep_getc	../edifparse/token.c	/^static ep_getc(fp)$/
+ep_getname	../edifparse/parse.c	/^ep_name *ep_getname(str)$/
+ep_getnamearg	../edifparse/parse.c	/^int ep_getnamearg(keystr)$/
+ep_getoptarg	../edifparse/parse.c	/^int ep_getoptarg(keystr)$/
+ep_getproplist	../edifparse/builtin.c	/^property *ep_getproplist(keystr)$/
+ep_gettoken	../edifparse/token.c	/^ep_gettoken()$/
+ep_ignorekey	../edifparse/parse.c	/^ep_keyword *ep_ignorekey(name)$/
+ep_init	../edifparse/parse.c	/^ep_init()$/
+ep_insertkey	../edifparse/parse.c	/^ep_keyword *ep_insertkey(name)$/
+ep_parse	../edifparse/parse.c	/^ep_parse()$/
+ep_perr	../edifparse/parse.c	/^void ep_perr(va_alist)$/
+ep_perr_ignore	../edifparse/parse.c	/^int ep_perr_ignore(va_alist)$/
+ep_popctx	../edifparse/parse.c	/^void ep_popctx()$/
+ep_printtoken	../edifparse/token.c	/^ep_printtoken(fp)$/
+ep_pushctx	../edifparse/parse.c	/^void ep_pushctx(pre)$/
+ep_setctx	../edifparse/parse.c	/^void ep_setctx(pre)$/
+ep_sizesbuf	../edifparse/token.c	/^ep_sizesbuf(len)$/
+ep_startparse	../edifparse/parse.c	/^void ep_startparse(fp)$/
+ep_ungetc	../edifparse/token.c	/^static ep_ungetc(ch,fp)$/
+epk_cell	../edifparse/builtin.c	/^int epk_cell(cellname)$/
+epk_cellref	../edifparse/builtin.c	/^int epk_cellref(cellname, libref)$/
+epk_design	../edifparse/builtin.c	/^int epk_design(designname, cellref)$/
+epk_direction	../edifparse/builtin.c	/^int epk_direction(dir)$/
+epk_e	../edifparse/builtin.c	/^int epk_e(i1, i2)$/
+epk_eat	../edifparse/builtin.c	/^int epk_eat(keystr)$/
+epk_ediflevel	../edifparse/builtin.c	/^int epk_ediflevel(level)$/
+epk_edifversion	../edifparse/builtin.c	/^int epk_edifversion(a,b,c)$/
+epk_ignore	../edifparse/builtin.c	/^int epk_ignore()$/
+epk_init	../edifparse/builtin.c	/^epk_init()$/
+epk_instance	../edifparse/builtin.c	/^int epk_instance(name, vref)$/
+epk_instanceref	../edifparse/builtin.c	/^int epk_instanceref(iname)$/
+epk_integer	../edifparse/builtin.c	/^int epk_integer(i)$/
+epk_joined	../edifparse/builtin.c	/^int epk_joined()$/
+epk_joined_portref	../edifparse/builtin.c	/^int epk_joined_portref(pname)$/
+epk_library	../edifparse/builtin.c	/^int epk_library(keystr, libname)$/
+epk_libraryref	../edifparse/builtin.c	/^int epk_libraryref(libname)$/
+epk_net	../edifparse/builtin.c	/^int epk_net(name)$/
+epk_number	../edifparse/builtin.c	/^int epk_number(dp)$/
+epk_port	../edifparse/builtin.c	/^int epk_port(name, dir)$/
+epk_property	../edifparse/builtin.c	/^int epk_property(n)$/
+epk_rename	../edifparse/builtin.c	/^int epk_rename(name, rename)$/
+epk_string	../edifparse/builtin.c	/^int epk_string(str)$/
+epk_timestamp	../edifparse/builtin.c	/^int epk_timestamp(year,month,day,hour,minute,secon/
+epk_view	../edifparse/builtin.c	/^epk_view(viewname)$/
+epk_viewref	../edifparse/builtin.c	/^int epk_viewref(viewname, cellref)$/
+ex_design	edif_actions.c	/^int ex_design(designname, libname, cellname)$/
+ex_endcell	edif_actions.c	/^int ex_endcell()$/
+ex_endlibrary	edif_actions.c	/^int ex_endlibrary()$/
+ex_endnet	edif_actions.c	/^int ex_endnet()$/
+ex_endview	edif_actions.c	/^int ex_endview()$/
+ex_instance	edif_actions.c	/^int ex_instance(name, libname, cellname, viewname)/
+ex_join	edif_actions.c	/^int ex_join(pname, iname)$/
+ex_port	edif_actions.c	/^int ex_port(name, dir, plist)$/
+ex_startcell	edif_actions.c	/^int ex_startcell(cellname)$/
+ex_startlibrary	edif_actions.c	/^int ex_startlibrary(libtype, libname)$/
+ex_startnet	edif_actions.c	/^int ex_startnet(name)$/
+ex_startview	edif_actions.c	/^int ex_startview(viewname)$/
+findcell	misc.c	/^cell *findcell(lp, name)$/
+findlibrary	misc.c	/^library *findlibrary(name)$/
+findview	misc.c	/^view *findview(cellp, name)$/
+fixnc	misc.c	/^fixnc(vp)$/
+fixncinsthash	misc.c	/^fixncinsthash(ht)$/
+flatten	flatten.c	/^flatten(vp, testfunc)$/
+hash	../edifparse/parse.c	/^static int hash(str, tsize)$/
+hashdelete_f	../util/hash.c	/^int hashdelete_f(ht, nhe)$/
+hashfind	../util/hash.c	/^hashentry *hashfind(ht, name)$/
+hashinit	../util/hash.c	/^void hashinit(ht)$/
+hashinsert_f	../util/hash.c	/^int hashinsert_f(ht, nhe)$/
+hookup	misc.c	/^void hookup(ptp, np)$/
+isprimitive	misc.c	/^int isprimitive(vp)$/
+mergenets	misc.c	/^void mergenets(tonp, fromnp)$/
+netlist_init	init.c	/^netlist_init()$/
+setprimtype	misc.c	/^setprimtype(vp)$/
+u_calloc	../util/alloc.c	/^void *u_calloc(nelem, elsize)$/
+u_crash	../util/crash.c	/^void u_crash(va_alist)$/
+u_currenttime	../util/time.c	/^long u_currenttime()$/
+u_findhome	../util/home.c	/^char *u_findhome(argv0)$/
+u_free	../util/alloc.c	/^void u_free(p)$/
+u_getwd	../util/home.c	/^char *u_getwd()$/
+u_malloc	../util/alloc.c	/^void *u_malloc(size)$/
+u_realloc	../util/alloc.c	/^void *u_realloc(p, size)$/
+u_strsave	../util/alloc.c	/^char *u_strsave(str)$/
+u_timestring	../util/time.c	/^char *u_timestring(time)$/
+unhook	misc.c	/^void unhook(ptp)$/
