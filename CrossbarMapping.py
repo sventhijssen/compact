@@ -47,21 +47,20 @@ class CrossbarMapping:
                 input_variables.add(self.graph.nodes[node_b]["variable"])
             visited_nodes.add(node_a)
             visited_nodes.add(node_b)
-            if config.io_constraints:
-                if self.graph.nodes[node_a]["terminal"]:
-                    input_variable = self.graph.nodes[node_a]["variable"]
-                    input_nodes[input_variable] = self.horizontal.index(node_a)
-                if self.graph.nodes[node_b]["terminal"]:
-                    input_variable = self.graph.nodes[node_b]["variable"]
-                    input_nodes[input_variable] = self.horizontal.index(node_b)
-                if self.graph.nodes[node_a]["root"]:
-                    output_variables = self.graph.nodes[node_a]["output_variables"]
-                    for output_variable in output_variables:
-                        root_nodes[output_variable] = self.horizontal.index(node_a)
-                if self.graph.nodes[node_b]["root"]:
-                    output_variables = self.graph.nodes[node_b]["output_variables"]
-                    for output_variable in output_variables:
-                        root_nodes[output_variable] = self.horizontal.index(node_b)
+            if self.graph.nodes[node_a]["terminal"]:
+                input_variable = self.graph.nodes[node_a]["variable"]
+                input_nodes[input_variable] = self.horizontal.index(node_a)
+            if self.graph.nodes[node_b]["terminal"]:
+                input_variable = self.graph.nodes[node_b]["variable"]
+                input_nodes[input_variable] = self.horizontal.index(node_b)
+            if self.graph.nodes[node_a]["root"]:
+                output_variables = self.graph.nodes[node_a]["output_variables"]
+                for output_variable in output_variables:
+                    root_nodes[output_variable] = self.horizontal.index(node_a)
+            if self.graph.nodes[node_b]["root"]:
+                output_variables = self.graph.nodes[node_b]["output_variables"]
+                for output_variable in output_variables:
+                    root_nodes[output_variable] = self.horizontal.index(node_b)
 
             edge_data = self.graph.get_edge_data(node_a, node_b)
             variable = edge_data["variable"]

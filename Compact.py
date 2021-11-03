@@ -19,9 +19,6 @@ class Compact(MappingMethod):
         print("COMPACT started")
         print(datetime.now())
         self.start_time = time.time()
-        self.log += 'COMPACT version: {}\n'
-        self.log += 'Nodes: {}\n'.format(len(graph.nodes))
-        self.log += 'Edges: {}\n'.format(len(graph.edges))
 
         config.log.add('COMPACT version: VH-labeling\n')
         config.log.add('Nodes: {}\n'.format(len(graph.nodes)))
