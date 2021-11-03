@@ -1,6 +1,4 @@
-# ROBDD TO CROSSBAR
-
-ROBDD TO CROSSBAR is a Python library for a collection of tools for flow-based computing. It comprises of COMPACT, CHECK, and related tools for constructing crossbar designs.
+# COMPACT: Flow-Based Computing on Nanoscale Crossbars with Minimal Semiperimeter
 
 ## Introduction
 ##### Flow-based computing
@@ -79,8 +77,7 @@ sudo make install
 ##### CPLEX
 By default, CPLEX is the ILP solver. 
 Download and install [CPLEX](https://www.ibm.com/analytics/cplex-optimizer), 
-and make sure CPLEX is installed and the variable `cplex_path` is set correctly for your OS. 
-If the default ILP solver is to be used, set `use_cplex = False` in `config.py`.
+and make sure CPLEX is installed and the variable `cplex_path` is set correctly for your OS.
 
 ##### Python packages and dependencies
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the Python dependencies in ``requirements.txt``.
@@ -99,8 +96,6 @@ In the directory [_examples_](/examples), some examples are given on how to use 
 ```bash
 python3 cli/main.py new_log t481.log | read benchmarks/t481.pla | robdd | compact
 ```
-
-In the directory [_Experiments_](/Experiments), an example is given on how to use COMPACT with the Python API.
 
 ## Version
 COMPACT version 2.0.0.  
