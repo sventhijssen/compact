@@ -1,5 +1,7 @@
 # COMPACT: Flow-Based Computing on Nanoscale Crossbars with Minimal Semiperimeter
 
+#### ___UPDATE: COMPACT version 2.0.0 is available in the branch [compact2](https://github.com/sventhijssen/compact/tree/compact2).___
+
 ## Introduction
 ##### Flow-based computing
 Flow-based computing is an in-memory computing paradigm on nanoscale memristor crossbars.
