@@ -18,8 +18,9 @@ from InfeasibleSolutionException import InfeasibleSolutionException
 
 class VHLabeling:
 
-    def __init__(self, g: Graph):
+    def __init__(self, g: Graph, layers: int = 1):
         self.g = g
+        self.layers = layers
         self.labeling = dict()
         self.start_time = None
         self.stop_time = None
@@ -54,13 +55,16 @@ class VHLabeling:
 
         # Based on: https://stackoverflow.com/questions/65572617/absolute-value-formulation-for-an-optimization-problem-with-pulp
         S = LpVariable("S", 0, cat=LpInteger)
+        D = LpVariable("D", 0, cat=LpInteger)
         R = LpVariable("R", 0, cat=LpInteger)
         C = LpVariable("C", 0, cat=LpInteger)
 
         lpvc = LpProblem("VC", LpMinimize)
 
-        lpvc += S
-        lpvc += S == R + C
+        lpvc += config.gamma * S + (1 - config.gamma) * D
+        lpvc += S == lpSum([x_vars])
+        lpvc += D >= R
+        lpvc += D >= C
 
         lpvc += R == sum([x_vars[v]['V'] for v in self.g.nodes])
         lpvc += C == sum([x_vars[v]['H'] for v in self.g.nodes])
@@ -69,12 +73,13 @@ class VHLabeling:
             lpvc += lpSum(x_vars[e[0]]['V'] + x_vars[e[1]]['H']) >= 2 - 2 * s_vars[e]
             lpvc += lpSum(x_vars[e[0]]['H'] + x_vars[e[1]]['V']) >= 2 - 2 * (1 - s_vars[e])
 
-        # Required constraint: root node and leaf node must be given a label H
-        for (v, d) in self.g.nodes(data=True):
-            if d["root"]:
-                lpvc += x_vars[v]['H'] == 1
-            if d["terminal"]:
-                lpvc += x_vars[v]['H'] == 1
+        # Required constraint: root node and leaf node must be given a label V
+        if config.io_constraints:
+            for (v, d) in self.g.nodes(data=True):
+                if d["root"]:
+                    lpvc += x_vars[v]['H'] == 1
+                if d["terminal"]:
+                    lpvc += x_vars[v]['H'] == 1
 
         print("\tStarted ILP solver")
         print("\t{}".format(datetime.now()))
@@ -105,12 +110,12 @@ class VHLabeling:
         self.stop_time = time.time()
 
         print("Status: ", LpStatus[lpvc.status])
-        print("Objective: " + str(S.varValue))
+        print("Objective: " + str(config.gamma * S.varValue + (1 - config.gamma) * D.varValue))
         print("Label V: " + str(vs))
         print("Label H: " + str(hs))
         print("Label VH: " + str(vhs))
 
-        config.log.add("Objective: {}\n".format(S.varValue))
+        config.log.add("Objective: {}\n".format(config.gamma * S.varValue + (1 - config.gamma) * D.varValue))
         config.log.add("Label V: {}\n".format(vs))
         config.log.add("Label H: {}\n".format(hs))
         config.log.add("Label VH: {}\n".format(vhs))
@@ -123,6 +128,7 @@ class VHLabeling:
                     if "gap" in line:
                         gap = float(re.findall(r'(\d+\.\d+)\%', line)[0])
         config.log.add("Gap (%): {}\n".format(gap))
+        # print('Labeling: {}\n'.format(self.labeling))
 
         config.log.add(self.get_log())
 

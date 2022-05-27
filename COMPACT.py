@@ -9,10 +9,10 @@ from MappingMethod import MappingMethod
 from VHLabeling import VHLabeling
 
 
-class Compact(MappingMethod):
+class COMPACT(MappingMethod):
 
     def __init__(self):
-        super(Compact, self).__init__()
+        super(COMPACT, self).__init__()
         self.labeling = None
 
     def map(self, graph: Graph, layers: int = 1):

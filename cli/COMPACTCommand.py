@@ -1,12 +1,29 @@
 import config
 from cli.Command import Command
-from Compact import Compact
+from COMPACT import COMPACT
 
 
 class COMPACTCommand(Command):
 
     def __init__(self, args: list):
         super(COMPACTCommand).__init__()
+
+        if "-gamma" in args:
+            idx = args.index("-gamma")
+            config.gamma = float(args[idx + 1])
+        else:
+            config.gamma = 1
+
+        if "-g" in args:
+            idx = args.index("-g")
+            config.gamma = float(args[idx + 1])
+        else:
+            config.gamma = 1
+
+        if "-vh" in args:
+            config.vh_labeling = True
+        else:
+            config.vh_labeling = False
 
         if "-t" in args:
             idx = args.index("-t")
@@ -21,6 +38,6 @@ class COMPACTCommand(Command):
 
     def execute(self):
         context = config.context_manager.get_context()
-        compact = Compact()
+        compact = COMPACT()
         context.crossbar = compact.map(context.benchmark_graph.get_single_graph())
         return False

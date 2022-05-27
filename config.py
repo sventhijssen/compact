@@ -8,6 +8,7 @@ context_manager = ContextManager()
 log = Log()
 
 # Settings for BDD
+vh_labeling = True
 time_limit_bdd = 60
 bdd = "robdd"
 bdd_parser = None
@@ -18,10 +19,12 @@ time_limit = None
 # Keep auxiliary files from CPLEX
 keep_files = False
 
+gamma = 1
+
 mapping_method = "compact"
 
 root = pathlib.Path(__file__).parent.absolute()
-benchmark_path = root.joinpath('Benchmarks')
+benchmark_path = root.joinpath('benchmarks')
 abc_path = root.joinpath('abc')
 
 if platform.system() == 'Windows':
