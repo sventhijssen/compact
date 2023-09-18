@@ -13,6 +13,8 @@ time_limit_bdd = 60
 bdd = "robdd"
 bdd_parser = None
 
+io_constraints = True
+
 # Settings for COMPACT
 # Apply a time limit
 time_limit = None
